@@ -47,7 +47,7 @@ class OrderPage extends React.Component {
                 <br/>
 
                 <textarea value={this.getTotalString()}/> <br/>
-                <button onSubmit ={this.onSubmit}>submit</button>
+                <button onClick ={this.onClick}>submit</button>
 
              
               
@@ -71,7 +71,7 @@ orderFetch=() =>
   this.props.foo(this.state)
 }
 
-onSubmit =(e) =>{
+onClick =(e) =>{
     //e.preventDefault();
     this.setState({ordered:true})
     this.orderFetch();
