@@ -7,7 +7,7 @@ class OrderPage extends React.Component {
         fries:0,
         totalPricePies :0,
         totalPriceFries :0,
-        ordered: false,
+        ordered:false,
         clicked:this.props.clicked
 
     }
@@ -66,26 +66,24 @@ class OrderPage extends React.Component {
 
 orderFetch=() =>
 {
-                
+  var obj =this.state;    
+  obj.ordered=true;        
  
   this.props.foo(this.state)
 }
 
-onClick =(e) =>{
+onClick =() =>{
     //e.preventDefault();
-    this.setState({ordered:true})
-    this.orderFetch();
-
+    this.setState({ordered:true}, ()=>{
+        this.props.foo(this.state);
+    });
 }
+    
+
+
 
  
- 
-formSubmit =(e) =>{
-    if(+this.state.fries==0&& +this.state.pies==0)
-            e.preventDefault();
-           
 
-}
 
     getTotalString=() =>{
         //let total = "Total is $ ";
@@ -122,4 +120,6 @@ formSubmit =(e) =>{
     }
 
 }
+
+
 export default OrderPage;

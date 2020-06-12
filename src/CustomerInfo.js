@@ -22,7 +22,7 @@ class CustomerInfo extends React.Component
 
                 <form>
 
-                       <h1>{this.state.pies}</h1>
+                       <h1>l</h1>
 
                    <label>
                          First Name
