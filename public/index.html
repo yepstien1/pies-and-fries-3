@@ -24,7 +24,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script rel="stylesheet" src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"></script>
+ 
+    <script async defer src="https://apis.google.com/js/api.js"
+          onload="this.onLoad=function(){handleClientLoad()};"
+          onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+       
     <title>React App</title>
   </head>
   <body>

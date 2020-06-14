@@ -1,7 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import OrderPage from './OrderPage.js'
 import CustomerInfo from './CustomerInfo.js'
+import PaymentPage from './PaymentPage'
+import Review from './Review'
 
 import './App.css';
 class App extends React.Component{
@@ -12,7 +14,8 @@ class App extends React.Component{
   state={
       clicked:false,
       ordered:false,
-      infoSubmitted:false
+      infoSubmitted:false,
+      paymentSubmitted:false
   }
   
  
@@ -22,12 +25,28 @@ class App extends React.Component{
     
   }
   fetchFromOrder =(childData) =>{
-    this.setState({ordered:childData.ordered})
+    this.setState({ordered:childData.ordered,pies:childData.pies,fries:childData.fries,
+    totalPricePies:childData.totalPricePies,
+    totalPriceFries:childData.totalPriceFries,
+  })
+
+  
    
-    console.log(childData.clicked +"from fetchorder")
-    this.setState({clicked:childData.clicked})
+ 
+    //this.setState({clicked:childData.clicked})
 
 
+  } 
+
+  fetchFromCustomer =(childData) =>{
+this.setState({...childData})
+
+
+  }
+
+
+  fetchFromPayment =(childData) =>{
+    this.setState({...childData})
   }
 
 
@@ -38,9 +57,14 @@ class App extends React.Component{
         if(!this.state.clicked)
         element = <Welcome foo ={this.fetchFromWelcome}/>
         else if(!this.state.ordered)
-        element=<OrderPage foo ={this.fetchFromOrder} clicked={this.state.clicked} />
-else 
-element=<CustomerInfo/>
+        element=<OrderPage foo ={this.fetchFromOrder}  />
+else if(!this.state.infoSubmitted)
+element=<CustomerInfo foo={this.fetchFromCustomer}/>
+else if(!this.state.paymentSubmitted)
+element = <PaymentPage foo={this.fetchFromPayment}/>
+else
+element =<Review {...this.state}/>
+
           return (
             
    element
@@ -75,8 +99,11 @@ element=<CustomerInfo/>
             )
         }
         submit =() =>{
-          this.setState({clicked:true})
-          this.welcomeFetch();
+          this.setState({clicked:true},()=>{
+            this.welcomeFetch();
+          }
+          );
+         
 
         }
         welcomeFetch=() =>

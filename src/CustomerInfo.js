@@ -22,7 +22,7 @@ class CustomerInfo extends React.Component
 
                 <form>
 
-                       <h1>l</h1>
+                       <h1>Please enter your information below</h1>
 
                    <label>
                          First Name
@@ -66,12 +66,12 @@ class CustomerInfo extends React.Component
                     </label>
                     <br/>
 
-
+                    <button type = "submit" onClick ={this.submit}>submit</button> 
 
 
 
                     <br/>
-<h4> {this.state.address}</h4>
+<h4>nlank</h4>
 
 
 
@@ -81,6 +81,18 @@ class CustomerInfo extends React.Component
             
         );
     
+        }
+
+        submit =()=>{
+
+            this.setState({infoSubmitted:true},() =>{ this.sendToParent()
+            });
+        }
+        
+
+        sendToParent =()=>{
+            this.props.foo(this.state);
+
         }
     
 

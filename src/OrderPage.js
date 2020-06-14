@@ -7,8 +7,8 @@ class OrderPage extends React.Component {
         fries:0,
         totalPricePies :0,
         totalPriceFries :0,
-        ordered:false,
-        clicked:this.props.clicked
+        ordered:false
+        
 
     }
    
@@ -16,7 +16,7 @@ class OrderPage extends React.Component {
    
 
     render() {
-        return (
+        return  (
 <div>
              <h1>What would you like ?</h1>
 
@@ -66,8 +66,7 @@ class OrderPage extends React.Component {
 
 orderFetch=() =>
 {
-  var obj =this.state;    
-  obj.ordered=true;        
+    
  
   this.props.foo(this.state)
 }
