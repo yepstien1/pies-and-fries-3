@@ -49,6 +49,10 @@ this.setState({...childData})
     this.setState({...childData})
   }
 
+  fetchFromReview=(childData) =>{
+    this.setState({ordered:false})
+  }
+
 
     
   
@@ -63,7 +67,7 @@ element=<CustomerInfo foo={this.fetchFromCustomer}/>
 else if(!this.state.paymentSubmitted)
 element = <PaymentPage foo={this.fetchFromPayment}/>
 else
-element =<Review {...this.state}/>
+element =<Review {...this.state} foo ={this.fetchFromReview}/>
 
           return (
             

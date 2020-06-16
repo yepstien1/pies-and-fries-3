@@ -3,6 +3,7 @@
 import React from "react";
 
 import emailjs from 'emailjs-com';
+
       
 
 
@@ -15,11 +16,16 @@ const CLIENT_ID ='835386440370-ibr4qbmq5a0acvg7v2o7h4dpbsoo1so5.apps.googleuserc
 
  var authorizeButton = document.getElementById('authorize-button');
 var signoutButton = document.getElementById('signout-button');
-
+/*var log4js = require("log4js");
+var logger = log4js.getLogger();
+logger.level="debug";
+logger.debug("hi")
+*/
 
 class Review extends React.Component {
     state={
-        ...this.props
+        ...this.props,
+    fullName:this.props.firstName+ " " + this.props.lastName
     }
 
    
@@ -68,7 +74,7 @@ class Review extends React.Component {
 
 
 
-                <button type ='submit' onClick ={this.onClick}>submit</button>
+                <button type ='submit' onClick ={this.onClick}>submit</button> <button onClick ={this.returnToOrderPage}>edit your order</button>
 
                 </form>
 </div>
@@ -117,6 +123,7 @@ var abbreviatedState ={
     name : this.state.fullName,
    email : this.state.email,
     pies: this.state.pies,
+    paymentInfo: this.state.paymentInfo,
     totalPies: this.state.totalPricePies,
     fries: this.state.fries,
     totalFries: this.state.totalPriceFries,
@@ -165,7 +172,9 @@ this.sendEmail(abbreviatedState);
                                                     	.catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
                                                     }
 
-
+returnToOrderPage =() =>{
+    this.props.foo();
+}
 
     componentDidMount() {
         this.handleClientLoad();

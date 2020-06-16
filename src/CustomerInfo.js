@@ -19,20 +19,43 @@ class CustomerInfo extends React.Component
 
         return(
             
-
+           
                 <form>
+                 <h1>Please enter your information below</h1>
+                <table>
+<tr>
+<td align="justify">
+                        First Name
+                        
+                    </td>
+                    <td align="justify">
 
-                       <h1>Please enter your information below</h1>
+                    <input type="text" id="firstName" onChange={this.handleFirstName } required/>
 
-                   <label>
-                         First Name
-                        <input type="text" id="firstName" onChange={this.handleFirstName } required/>
-                    </label>
+                    </td>
+
+</tr>
+                
+                   
                     <br/>
-                    <label>
-                     Last name
+                    <tr>
+<td align="justify">
+Last name      
+                        
+                    </td>
+                    <td align="justify">
+
                     <input type="text" id="lastName"  onChange={this.handleLastName} />
-                </label>
+
+                    </td>
+
+
+
+</tr>
+
+
+
+
                     <br/>
                     <label>
                         Mobile Number
@@ -64,6 +87,11 @@ class CustomerInfo extends React.Component
                         Zip
                         <input type="text" id="Zip" onChange={this.handleZip}/>
                     </label>
+
+                </table>
+
+                   
+
                     <br/>
 
                     <button type = "submit" onClick ={this.submit}>submit</button> 
