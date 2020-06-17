@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Form} from 'react-bootstrap'
 class OrderPage extends React.Component {
 
  
@@ -20,47 +20,41 @@ class OrderPage extends React.Component {
     render() {
         return  (
 <div>
-             <h1>What would you like ?</h1>
-<table>
-    <tr>
-    <td align = 'justified'>Pies ($18) How many would you like</td>
-<td><select onChange={this.handlePizzaChange} >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select></td>
-    </tr>
-    <tr>
-    <td align = 'justified'> Fries ($3) How many would you like</td>
-<td>
- 
-<select onChange={this.handleFriesChange}>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+<Form>
+  <Form.Group controlId="exampleForm.ControlInput1">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="name@example.com" />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect1">
+    <Form.Label>Example select</Form.Label>
+    <Form.Control as="select">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlSelect2">
+    <Form.Label>Example multiple select</Form.Label>
+    <Form.Control as="select" multiple>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlTextarea1">
+    <Form.Label>Example textarea</Form.Label>
+    <Form.Control as="textarea" rows="3" />
+  </Form.Group>
+</Form>
 
-                    </td>
-    </tr>
-    <tr>
-    <textarea value={this.getTotalString()}/> <br/>
+                
 
-    </tr>
-
-
-</table>
-
-
+                
                
-
-                
-
-                
-                <button onClick ={this.onClick}>submit</button>
                 <h4>{this.state.warning}</h4>
 
              
