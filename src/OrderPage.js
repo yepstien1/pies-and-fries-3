@@ -1,4 +1,5 @@
 import React from 'react';
+
 class OrderPage extends React.Component {
 
  
@@ -7,7 +8,8 @@ class OrderPage extends React.Component {
         fries:0,
         totalPricePies :0,
         totalPriceFries :0,
-        ordered:false
+        ordered:false,
+        warning:''
         
 
     }
@@ -19,40 +21,52 @@ class OrderPage extends React.Component {
         return  (
 <div>
              <h1>What would you like ?</h1>
-
-<form  onSubmit ={this.validateForm}>
-
-<label>
-                    Pies ($18) How many would you like
-                    <select onChange={this.handlePizzaChange} >
+<table>
+    <tr>
+    <td align = 'justified'>Pies ($18) How many would you like</td>
+<td><select onChange={this.handlePizzaChange} >
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select></td>
+    </tr>
+    <tr>
+    <td align = 'justified'> Fries ($3) How many would you like</td>
+<td>
+ 
+<select onChange={this.handleFriesChange}>
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                     </select>
-                </label>
-                <br/>
-                <label>
-                    Fries ($3) How many would you like
-                    <select onChange={this.handleFriesChange}>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </label>
 
-                <br/>
+                    </td>
+    </tr>
+    <tr>
+    <textarea value={this.getTotalString()}/> <br/>
 
-                <textarea value={this.getTotalString()}/> <br/>
+    </tr>
+
+
+</table>
+
+
+               
+
+                
+
+                
                 <button onClick ={this.onClick}>submit</button>
+                <h4>{this.state.warning}</h4>
 
              
               
 
-</form>
+
 
                 
 
@@ -71,11 +85,19 @@ orderFetch=() =>
   this.props.foo(this.state)
 }
 
-onClick =() =>{
-    //e.preventDefault();
-    this.setState({ordered:true}, ()=>{
-        this.props.foo(this.state);
-    });
+onClick =(e) =>{
+   // e.preventDefault();
+    if(this.state.pies===0&&this.state.fries===0)
+    {
+
+        this.setState({warning:"you forgot to select how many pies and fries you want"})
+    }
+    else {
+        this.setState({ordered:true}, ()=>{
+            this.orderFetch();
+        });
+    }
+    
 }
     
 

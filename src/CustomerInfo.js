@@ -20,7 +20,7 @@ class CustomerInfo extends React.Component
         return(
             
            
-                <form>
+                <form onSubmit={this.submit}>
                  <h1>Please enter your information below</h1>
                 <table>
 <tr>
@@ -36,8 +36,7 @@ class CustomerInfo extends React.Component
 
 </tr>
                 
-                   
-                    <br/>
+                                   
                     <tr>
 <td align="justify">
 Last name      
@@ -45,7 +44,7 @@ Last name
                     </td>
                     <td align="justify">
 
-                    <input type="text" id="lastName"  onChange={this.handleLastName} />
+                    <input type="text" id="lastName"  onChange={this.handleLastName} required />
 
                     </td>
 
@@ -56,37 +55,83 @@ Last name
 
 
 
-                    <br/>
-                    <label>
-                        Mobile Number
-                        <input type="text" id="phone number" onChange={this.handleNumber}/>
-                    </label>
-                    <br/>
+                    
 
+                    <tr>
+<td align="justify">
+                        
+Mobile Number 
+                    </td>
+                    <td align="justify">
 
                     
-                    <label>
-                        Email address
-                        <input type="text" id="email" onChange={this.handleEmail}/>
-                    </label>
-                    <br/>
+                    <input type="text" id="phone number" onChange={this.handleNumber} required/>
 
-                    <label>
-                         Address
-                        <input type="text" id="address" onChange={this.handleAddress}/>
-                    </label>
-                    <br/>
+                    </td>
 
-                    <label>
-                        City
-                        <input type="text" id="Citi" onChange={this.handleCiti}/>
-                    </label>
-                    <br/>
+</tr>
+                    
+                    
 
-                    <label>
-                        Zip
-                        <input type="text" id="Zip" onChange={this.handleZip}/>
-                    </label>
+                    <tr>
+<td align="justify">
+Email address      
+ 
+                    </td>
+                    <td align="justify">
+
+                    <input type="text" id="email" onChange={this.handleEmail} required/>
+                    
+
+                    </td>
+
+</tr>
+    
+<tr>
+<td align="justify">
+ Address      
+ 
+                    </td>
+                    <td align="justify">
+
+                    <input type="text" id="address" onChange={this.handleAddress} required/>
+                    
+
+                    </td>
+
+</tr>                   
+
+                    <tr>
+<td align="justify">
+City
+ 
+                    </td>
+                    <td align="justify">
+
+                    
+                    <input type="text" id="Citi" onChange={this.handleCiti} required/>
+
+                    </td>
+
+</tr>
+                    
+                    <tr>
+<td align="justify">
+Zip
+ 
+                    </td>
+                    <td align="justify">
+
+                    
+                    <input type="text" id="Zip" onChange={this.handleZip} required/>
+
+                    </td>
+
+</tr>          
+
+                    
+
+                  
 
                 </table>
 
@@ -94,25 +139,15 @@ Last name
 
                     <br/>
 
-                    <button type = "submit" onClick ={this.submit}>submit</button> 
-
-
-
-                    <br/>
-<h4>nlank</h4>
-
-
-
-
-
+                    <button type = "submit" >submit</button> 
                 </form>
             
         );
     
         }
 
-        submit =()=>{
-
+        submit =(e)=>{
+e.preventDefault();
             this.setState({infoSubmitted:true},() =>{ this.sendToParent()
             });
         }

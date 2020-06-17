@@ -4,10 +4,14 @@ import OrderPage from './OrderPage.js'
 import CustomerInfo from './CustomerInfo.js'
 import PaymentPage from './PaymentPage'
 import Review from './Review'
+import Confirmation from './Confirmation'
 
 import './App.css';
 class App extends React.Component{
-
+componentDidMount()
+{
+  document.title="Pies and Fries"
+}
   
 
 
@@ -15,7 +19,8 @@ class App extends React.Component{
       clicked:false,
       ordered:false,
       infoSubmitted:false,
-      paymentSubmitted:false
+      paymentSubmitted:false,
+      confirmed: false
   }
   
  
@@ -50,7 +55,19 @@ this.setState({...childData})
   }
 
   fetchFromReview=(childData) =>{
+    if(childData==='ordered')
     this.setState({ordered:false})
+    else if(childData==='infoSubmitted')
+    this.setState({infoSubmitted:false})
+    else if(childData==='paymentSubmitted')
+    this.setState({paymentSubmitted:false})
+    else {
+      this.setState({confirmed:true})
+    }
+
+
+
+
   }
 
 
@@ -66,8 +83,10 @@ else if(!this.state.infoSubmitted)
 element=<CustomerInfo foo={this.fetchFromCustomer}/>
 else if(!this.state.paymentSubmitted)
 element = <PaymentPage foo={this.fetchFromPayment}/>
-else
+else if(!this.state.confirmed)
 element =<Review {...this.state} foo ={this.fetchFromReview}/>
+else if(this.state.confirmed)
+element =<Confirmation/>
 
           return (
             
@@ -91,7 +110,7 @@ element =<Review {...this.state} foo ={this.fetchFromReview}/>
    <h1>Welcome to Pies and Fries</h1>
     
     <p>This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</p>
-    <button type = "submit" onClick ={this.submit}>submit</button> 
+    <button type = "submit" onClick ={this.submit}>Click here to Eat</button> 
 
                 </div>
 
