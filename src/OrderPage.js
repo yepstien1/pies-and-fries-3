@@ -1,5 +1,6 @@
 import React from 'react';
-import {Form} from 'react-bootstrap'
+import {Form, Button}  from 'react-bootstrap'
+
 class OrderPage extends React.Component {
 
  
@@ -20,14 +21,13 @@ class OrderPage extends React.Component {
     render() {
         return  (
 <div>
+<h1>What would you like ?</h1>
 <Form>
-  <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" />
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Label>Example select</Form.Label>
-    <Form.Control as="select">
+  
+  <Form.Group controlId="exampleForm.ControlSelect1" onChange={this.handlePizzaChange}>
+    <Form.Label >Pies ($18) How many would you like</Form.Label>
+    <Form.Control  size ='sm' as="select" >
+    <option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -35,26 +35,28 @@ class OrderPage extends React.Component {
       <option>5</option>
     </Form.Control>
   </Form.Group>
-  <Form.Group controlId="exampleForm.ControlSelect2">
-    <Form.Label>Example multiple select</Form.Label>
-    <Form.Control as="select" multiple>
+  
+
+  <Form.Group controlId="exampleForm.ControlSelect1" onChange ={this.handleFriesChange}>
+    <Form.Label> Fries ($3) How many would you like</Form.Label>
+    <Form.Control  size ='sm' as="select" >
+    <option>0</option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
       <option>5</option>
     </Form.Control>
+    
+ 
   </Form.Group>
-  <Form.Group controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Example textarea</Form.Label>
-    <Form.Control as="textarea" rows="3" />
-  </Form.Group>
+  <textarea value={this.getTotalString()}/> <br/>
 </Form>
 
                 
 
                 
-               
+<Button variant ="primary" onClick ={this.onClick}>submit</Button>
                 <h4>{this.state.warning}</h4>
 
              

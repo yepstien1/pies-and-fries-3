@@ -5,6 +5,8 @@ import CustomerInfo from './CustomerInfo.js'
 import PaymentPage from './PaymentPage'
 import Review from './Review'
 import Confirmation from './Confirmation'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import './App.css';
 class App extends React.Component{
