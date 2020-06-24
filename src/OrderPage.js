@@ -1,4 +1,5 @@
 import React from 'react';
+import {Form, Button}  from 'react-bootstrap'
 
 class OrderPage extends React.Component {
 
@@ -20,7 +21,7 @@ class OrderPage extends React.Component {
     render() {
         return  (
 <div>
-             <h1>What would you like ?</h1>
+<h1>What would you like ?</h1>
 <table>
     <tr>
     <td align = 'justified'>Pies ($18) How many would you like</td>
@@ -53,14 +54,10 @@ class OrderPage extends React.Component {
 
 
 </table>
-
-
-               
-
                 
 
                 
-                <button onClick ={this.onClick}>submit</button>
+<Button variant ="primary" onClick ={this.onClick}>submit</Button>
                 <h4>{this.state.warning}</h4>
 
              
@@ -78,9 +75,28 @@ class OrderPage extends React.Component {
  );
 }
 
+log=() =>{
+    const winston = require('winston');
+    const logger = winston.createLogger({
+        level: 'info',
+        format: winston.format.json(),
+        defaultMeta: { service: 'user-service' },
+        transports: [
+          //
+          // - Write to all logs with level `info` and below to `combined.log` 
+          // - Write all logs error (and below) to `error.log`.
+          //
+         
+          new winston.transports.File({ filename: 'error.log', level: 'error' }),
+          new winston.transports.File({ filename: 'combined.log' })
+        ]
+      }); 
+      logger.log("hi"); 
+     
+}
 orderFetch=() =>
 {
-    
+  //  this.log();
  
   this.props.foo(this.state)
 }

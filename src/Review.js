@@ -4,23 +4,23 @@ import React from "react";
 
 import emailjs from 'emailjs-com';
 
-      
+require('dotenv').config()   
 
 
-
+console.log(process.env.REACT_APP_bob);
 const SPREADSHEET_ID="19bDY2sJWyqNm4L3e3Ln-DeT-BiNnNBmwk_LjJiAe1Do";
-const API_KEY = "AIzaSyCHqHcnEUXkO8YU6a-_sTXKBCPUmmY2CZc";
+const API_KEY = process.env.REACT_APP_API_KEY;
 const SCOPE ="https://www.googleapis.com/auth/spreadsheets";
 //const SCOPE ="profile";
-const CLIENT_ID ='835386440370-ibr4qbmq5a0acvg7v2o7h4dpbsoo1so5.apps.googleusercontent.com';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
- var authorizeButton = document.getElementById('authorize-button');
-var signoutButton = document.getElementById('signout-button');
+
+ 
 /*var log4js = require("log4js");
 var logger = log4js.getLogger();
 logger.level="debug";
-logger.debug("hi")
-*/
+logger.debug("hi")*/
+
 
 class Review extends React.Component {
     state={
@@ -237,7 +237,8 @@ var abbreviatedState ={
     phone: this.state.phoneNumber,
     address: this.state.address,
     city: this.state.city,
-    zip: this.state.zip
+    zip: this.state.zip,
+    orderTime: new Date().toLocaleString()
 }
 console.log(abbreviatedState.city)
 
@@ -270,7 +271,7 @@ this.sendEmail(abbreviatedState);
         name:'bob',
         notes: 'this is test'
         }
-      //  const emailjs = require('emailjs');
+     
         emailjs.send('gmail','template_kmmjAIKP',bob, 'user_8NRChPD52ivYZTeEJVS7i').then(res => {
                                                       	console.log('Email successfully sent!')
                                                     	})
