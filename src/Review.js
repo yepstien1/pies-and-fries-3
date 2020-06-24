@@ -267,10 +267,6 @@ this.sendEmail(abbreviatedState);
         }
         sendEmail= (bob)=>{
 
-        var templateParams= {
-        name:'bob',
-        notes: 'this is test'
-        }
      
         emailjs.send('gmail','template_kmmjAIKP',bob, 'user_8NRChPD52ivYZTeEJVS7i').then(res => {
                                                       	console.log('Email successfully sent!')
