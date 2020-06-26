@@ -8,7 +8,7 @@ require('dotenv').config()
 
 
 console.log(process.env.REACT_APP_bob);
-const SPREADSHEET_ID="19bDY2sJWyqNm4L3e3Ln-DeT-BiNnNBmwk_LjJiAe1Do";
+const SPREADSHEET_ID=process.env.REACT_APP_GOOGLSEET_ID
 const API_KEY = process.env.REACT_APP_API_KEY;
 const SCOPE ="https://www.googleapis.com/auth/spreadsheets";
 //const SCOPE ="profile";
@@ -268,7 +268,7 @@ this.sendEmail(abbreviatedState);
         sendEmail= (bob)=>{
 
      
-        emailjs.send('gmail','template_kmmjAIKP',bob, 'user_8NRChPD52ivYZTeEJVS7i').then(res => {
+        emailjs.send('gmail','template_kmmjAIKP',bob, process.env.REACT_APP_EMAILJS_ID).then(res => {
                                                       	console.log('Email successfully sent!')
                                                     	})
                                                     	// Handle errors here however you like, or use a React error boundary
