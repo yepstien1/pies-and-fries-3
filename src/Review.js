@@ -7,12 +7,12 @@ import emailjs from 'emailjs-com';
 require('dotenv').config()   
 
 
-console.log(process.env);
-const SPREADSHEET_ID=process.env.REACT_APP_GOOGLSHEET_ID
-const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+
+const SPREADSHEET_ID="placeholder";
+const API_KEY = "placeholder";
 const SCOPE ="https://www.googleapis.com/auth/spreadsheets";
 //const SCOPE ="profile";
-const CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+const CLIENT_ID ='placeholder';
 
 
  
