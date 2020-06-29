@@ -8,11 +8,11 @@ require('dotenv').config()
 
 
 console.log(process.env.REACT_APP_bob);
-const SPREADSHEET_ID=process.env.REACT_APP_GOOGLSEET_ID
-const API_KEY = process.env.REACT_APP_API_KEY;
+const SPREADSHEET_ID=process.env.REACT_APP_GOOGLSHEET_ID
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const SCOPE ="https://www.googleapis.com/auth/spreadsheets";
 //const SCOPE ="profile";
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 
  
