@@ -23,6 +23,45 @@ exports.handler =async (event,orderInfo )=>{
               });
 
 
+              const params = {
+                // The ID of the spreadsheet to update.
+                spreadsheetId: bob.REACT_APP_GOOGLESHEET_ID,
+                // The A1 notation of a range to search for a logical table of data.Values will be appended after the last row of the table.
+                range: 'Sheet1', //this is the default spreadsheet name, so unless you've changed it, or are submitting to multiple sheets, you can leave this
+                // How the input data should be interpreted.
+                valueInputOption: 'RAW', //RAW = if no conversion or formatting of submitted data is needed. Otherwise USER_ENTERED
+                // How the input data should be inserted.
+                insertDataOption: 'INSERT_ROWS', //Choose OVERWRITE OR INSERT_ROWS,
+
+
+            };
+// Google sheets seemed to expect a 2d array so I tried this hack
+var abbreviatedState ={
+    name : 'yakove',
+   email : 'test',
+   
+}
+console.log(abbreviatedState.city)
+
+var orderInfo= Object.values(abbreviatedState);
+orderInfo= orderInfo.map(x => [x,'']);
+console.log(orderInfo);
+            const valueRangeBody = {
+               'majorDimension': 'COLUMNS', //log each entry as a new row (vs column)
+                'values': orderInfo//convert the object's values to an array
+
+            };
+
+
+            let request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+            request.then(function (response) {
+
+                console.log(response.result);
+            }, function (reason) {
+                console.error('error: ' + reason.result.error.message);
+            });
+
+
          
     return {
         statusCode:200,
