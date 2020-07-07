@@ -1,5 +1,5 @@
 
-
+/* global gapi */
 
 const bob = process.env;
 //const gapi =require('googleapis');
