@@ -1,8 +1,8 @@
 
-/* global gapi */
+
 
 const bob = process.env;
-//const gapi =require('googleapis');
+const gapi =require('googleapis');
 
 exports.handler =async (event,orderInfo )=>{
 
