@@ -2,11 +2,10 @@
 
 
 const bob = process.env;
-const gapi =require('googleapis');
+
 
 exports.handler =async (event,orderInfo )=>{
-
- 
+    const gapi =require('googleapis');
     gapi.initClient=()=>{
         gapi.client.init({
              'apiKey': bob.REACT_APP_GOOGLE_API_KEY,
