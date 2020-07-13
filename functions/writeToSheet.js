@@ -5,6 +5,7 @@ const bob = process.env;
 
 const gapi =require('googleapis');
 exports.handler =async (event,orderInfo )=>{
+    handleClientLoad();
     
     gapi.initClient=()=>{
         gapi.client.init({
@@ -91,3 +92,10 @@ function handleAuthClick (event){
     
     gapi.auth2.getAuthInstance().signIn();
 }
+
+function handleClientLoad ()
+{
+  gapi.load('client:auth2', this.initClient) ;
+
+}
+
