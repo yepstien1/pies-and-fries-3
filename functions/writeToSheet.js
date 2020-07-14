@@ -96,7 +96,7 @@ function handleAuthClick (event){
 
 function handleClientLoad ()
 {
-  gapi.load('client:auth2', this.initClient) ;
+  gapi.client.load('client:auth2', this.initClient) ;
 
 }
 
