@@ -14,7 +14,7 @@ exports.handler = async=>{
     
    
       // Authorize a client with credentials, then call the Google Sheets API.
-      authorize((bob), listMajors);
+      authorize(JSON.parse(bob), listMajors);
     }
     
     /**
