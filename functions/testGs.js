@@ -15,7 +15,7 @@ exports.handler = async=>{
    
       // Authorize a client with credentials, then call the Google Sheets API.
       authorize(JSON.parse(bob), listMajors);
-    }
+    
     
     /**
      * Create an OAuth2 client with the given credentials, and then execute the
@@ -91,5 +91,4 @@ exports.handler = async=>{
         }
       });
     }
-
-}
+  }
