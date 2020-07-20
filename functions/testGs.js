@@ -10,8 +10,7 @@ exports.handler = async=>{
     // created automatically when the authorization flow completes for the first
     // time.
     const TOKEN_PATH = 'token.json';
-    const bob = {"client_id":"644446624906-19hph8ki2713pv92urrdgtol55pr5gud.apps.googleusercontent.com","project_id":"testnode-282718","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"DZgPDostlm4VOLTJQzZAU4qW","javascript_origins":["https://pies-and-fries.netlify.app"]}
-    
+    const bob = process.env.REACT_APP_NODE_TEST;
    
       // Authorize a client with credentials, then call the Google Sheets API.
       authorize((bob), listMajors);
@@ -24,7 +23,7 @@ exports.handler = async=>{
      * @param {function} callback The callback to call with the authorized client.
      */
     function authorize(credentials, callback) {
-      const {client_secret, client_id, redirect_uris} = bob;
+      const {client_secret, client_id, redirect_uris} = credentials;
       const oAuth2Client = new google.auth.OAuth2(
           client_id, client_secret, redirect_uris[0]);
     

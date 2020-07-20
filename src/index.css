@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('pictures/pizza.jpg');
+
+  
  
 }
 
@@ -12,3 +15,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.text
+{
+  
+  background-color: black;
+  color: #fff; 
+  
+  padding: .1rem;
+}
+
+

@@ -109,9 +109,9 @@ element =<Confirmation/>
             return (
               
             <div>
-   <h1>Welcome to Pies and Fries</h1>
+   <h1 className= "text">Welcome to Pies and Fries</h1>
     
-    <p>This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</p>
+    <p className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</p>
     <button type = "submit" onClick ={this.submit}>Click here to Eat</button> 
 
                 </div>
