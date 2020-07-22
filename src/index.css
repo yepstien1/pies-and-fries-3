@@ -18,11 +18,14 @@ code {
 
 .text
 {
+  margin-left: 30%;
+  text-align: center;
   
   background-color: black;
   color: #fff; 
   
-  padding: .1rem;
+  
+
 }
 
 
