@@ -13,7 +13,7 @@ exports.handler = async=>{
     const bob = process.env.REACT_APP_NODE_TEST;
    console.log(bob);
       // Authorize a client with credentials, then call the Google Sheets API.
-      authorize((bob), listMajors);
+      authorize(JSON.parse(bob), listMajors);
     
     
     /**
