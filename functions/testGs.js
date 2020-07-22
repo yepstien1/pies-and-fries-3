@@ -10,11 +10,11 @@ exports.handler = async=>{
     // created automatically when the authorization flow completes for the first
     // time.
     const TOKEN_PATH = 'token.json';
-    const bob = process.env.REACT_APP_NODE_TEST;
+    const bob = JSON.parse(process.env.REACT_APP_NODE_TEST);
    console.log(bob);
       // Authorize a client with credentials, then call the Google Sheets API.
-      //authorize(JSON.parse(bob), listMajors);
-      authorize(JSON.parse(bob))
+      authorize(bob, listMajors);
+     // authorize(JSON.parse(bob))
     
     /**
      * Create an OAuth2 client with the given credentials, and then execute the
