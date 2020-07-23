@@ -108,10 +108,10 @@ element =<Confirmation/>
         render(){
             return (
               
-            <div>
+            <div className= 'block'>
    <h1 ><span className= "text">Welcome to Pies and Fries</span></h1>
     
-    <p ><span className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</span></p>
+    <h4><span className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</span></h4>
     <button type = "submit" onClick ={this.submit}>Click here to Eat</button> 
 
                 </div>

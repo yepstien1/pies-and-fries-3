@@ -16,13 +16,14 @@ code {
     monospace;
 }
 
-.text
+.block
 {
-  margin-left: 30%;
+  position: fixed;
+  left: 350px;
   text-align: center;
   
-  background-color: black;
-  color: #fff; 
+  /*background-color: maroon;*/
+  color: yellow; 
   
   
 
