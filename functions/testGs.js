@@ -24,10 +24,10 @@ exports.handler = async=>{
      * @param {function} callback The callback to call with the authorized client.
      */
     function authorize(credentials, callback) {
-      const {client_secret, client_id, redirect_uris} = credentials;
-      console.log(redirect_uris[0]);
+      const {client_secret, client_id} = credentials;
+     // console.log(redirect_uris[0]);
       const oAuth2Client = new google.auth.OAuth2(
-          client_id, client_secret, redirect_uris[0]);
+          client_id, client_secret);
     
       // Check if we have previously stored a token.
       fs.readFile(TOKEN_PATH, (err, token) => {
