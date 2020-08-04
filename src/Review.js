@@ -1,9 +1,9 @@
-/* global gapi */
+
 
 import React from "react";
 
 import emailjs from 'emailjs-com';
-import Axios from "axios";
+
 
 require('dotenv').config()   
 
@@ -256,57 +256,10 @@ returnToPaymentInfo=() =>
     }
 
 
-    handleClientLoad=()=>
-    {
-      gapi.load('client:auth2', this.initClient) ;
-
-    }
 
 
 
-   updateSigninStatus (isSignedIn){
 
-       if (isSignedIn) {
-          // authorizeButton.style.display = 'none';
-          // signoutButton.style.display = 'block';
-
-            // makeApiCall();
-        } else {
-          //  authorizeButton.style.display = 'block';
-           // signoutButton.style.display = 'none';
-            this.handleAuthClick();
-        }
-
-
-
-    }
-
-    handleAuthClick (event){
-    
-        gapi.auth2.getAuthInstance().signIn();
-    }
-
-    handleSignoutClick (event) {
-        gapi.auth2.getAuthInstance().signOut();
-    }
-
-    initClient=()=>{
-       gapi.client.init({
-            'apiKey': API_KEY,
-            'clientId': CLIENT_ID,
-            'scope': SCOPE,
-            'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-        }).then(()=> {
-            gapi.auth2.getAuthInstance().isSignedIn.listen(this.updateSigninStatus); //add a function called `updateSignInStatus` if you want to do something once a user is logged in with Google
-           this.updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-
-//authorizeButton.onclick = this.handleAuthClick;
-           //signoutButton.onclick = this.handleSignoutClick;
-
-             });
-
-
-    }
 
 
 
