@@ -251,7 +251,7 @@ returnToPaymentInfo=() =>
 
 
     componentDidMount() {
-        this.handleClientLoad();
+        
 
     }
 
