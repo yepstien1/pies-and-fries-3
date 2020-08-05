@@ -187,9 +187,6 @@ Zip
 
             
             
-            fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable")
-            .then(response => response.json())
-       .then(data => console.log(data));
 // Google sheets seemed to expect a 2d array so I tried this hack
 var abbreviatedState ={
     name : this.state.fullName,
@@ -210,6 +207,10 @@ var abbreviatedState ={
     orderTime: new Date().toLocaleString()
 }
 
+
+fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable",abbreviatedState)
+.then(response => response.json())
+.then(data => console.log(data));
 
 
 this.sendEmail(abbreviatedState);

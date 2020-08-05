@@ -1,7 +1,9 @@
-exports.handler=async =>{
+exports.handler=async (event,context)=>{
+console.log(event);
+console.log(context);
 
     var Airtable = require('airtable');
-    var base = new Airtable({apiKey: 'keyvA6Il24RapkkSh'}).base('appbTi7sjlAEMnht7');
+    var base = new Airtable({apiKey: process.env.REACT_APP_AIR_TABLE_API_KEY}).base('appbTi7sjlAEMnht7');
     
     
 base('Table 1').create([
