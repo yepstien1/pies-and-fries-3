@@ -12,7 +12,7 @@ console.log(context);
 base('Table 1').create([
     {
       "fields": {
-        "Name": info.name,
+        "Name": info.name+"",
         "Email": "howdy.com",
         "Total Fries Cost": 43
       }
