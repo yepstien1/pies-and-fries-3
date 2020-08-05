@@ -2,6 +2,6 @@
  command= "npm run build"
  publish ="build"
 
-D functions=  "./functionsR" 
+ functions=  "./functionsR" 
 
  #     "./functions-build    #
