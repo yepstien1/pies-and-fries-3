@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('pictures/pizza.jpg');
+  /*background-image: url('pictures/pizza.jpg');*/
 
   
  
@@ -22,8 +22,6 @@ code {
   left: 350px;
   text-align: center;
   
-  /*background-color: maroon;*/
-  color: yellow; 
   
   
 
