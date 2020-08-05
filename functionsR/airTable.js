@@ -6,8 +6,9 @@ console.log(context);
 
     var Airtable = require('airtable');
     var base = new Airtable({apiKey: process.env.REACT_APP_AIR_TABLE_API_KEY}).base('appbTi7sjlAEMnht7');
-  var info=event.body;
+  var info=JSON.parse(event.body);
     console.log("body" +event.body)
+    console.log(info.name);
 base('Table 1').create([
     {
       "fields": {
