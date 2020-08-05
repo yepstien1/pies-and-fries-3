@@ -208,10 +208,22 @@ var abbreviatedState ={
 }
 
 
-fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable",abbreviatedState)
-.then(response => response.json())
-.then(data => console.log(data));
 
+
+fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(abbreviatedState),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
 
 this.sendEmail(abbreviatedState);
 
