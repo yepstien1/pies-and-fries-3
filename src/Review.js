@@ -217,7 +217,7 @@ fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
   },
   body: abbreviatedState,
 })
-.then(response => response.json())
+.then(response => response.text())
 .then(data => {
   console.log('Success:', data);
 })
