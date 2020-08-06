@@ -1,4 +1,4 @@
-const { createSemicolonClassElement } = require('typescript');
+
 
 exports.handler=async (event,context)=>{
 console.log(event);
@@ -6,13 +6,13 @@ console.log(context);
 
     var Airtable = require('airtable');
     var base = new Airtable({apiKey: process.env.REACT_APP_AIR_TABLE_API_KEY}).base('appbTi7sjlAEMnht7');
-  var info=JSON.parse(event.body);
+  var info=/*JSON.parse(event.body)||*/{"name":"fakedata"};
     console.log("body" +event.body)
     console.log(info.name);
 base('Table 1').create([
     {
       "fields": {
-        "Name": info.name+"",
+        "Name": info.name,
         "Email": "howdy.com",
         "Total Fries Cost": 43
       }
