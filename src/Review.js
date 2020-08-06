@@ -215,7 +215,7 @@ fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify(abbreviatedState),
+  body: abbreviatedState,
 })
 .then(response => response.json())
 .then(data => {
