@@ -211,7 +211,7 @@ var abbreviatedState ={
 
 
 fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
-  method: 'POST', // or 'PUT'
+  method: 'POST', 
   headers: {
     'Content-Type': 'application/json',
   },

@@ -7,7 +7,7 @@ console.log(context);
     var Airtable = require('airtable');
    // console.log('key' + process.env.REACT_APP_AIR_TABLE_API_KEY)
    var key=process.env.REACT_APP_AIR_TABLE_API_KEY;
-   key=key +'';
+    
     var base = new Airtable({apiKey:key}).base('appbTi7sjlAEMnht7');
   var info=/*JSON.parse(event.body)||*/{"name":"fakedata"};
     console.log("body" +event.body)
@@ -27,14 +27,6 @@ base('Table 1').create([
         "Total Fries Cost": 29
       }
     }
-  ], function(err, records) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    records.forEach(function (record) {
-      console.log(record.getId());
-    });
-  });
+  ]).then(error=>(console.log(error)))
     
 }
