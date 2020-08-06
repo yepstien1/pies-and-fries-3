@@ -38,4 +38,5 @@ base('Table 1').create([
 }, err => {
   console.error(err)
 }) 
+console.log("hi from end of func")
 }
