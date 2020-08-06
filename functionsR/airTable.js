@@ -6,14 +6,16 @@ console.log(context);
 
     var Airtable = require('airtable');
    // console.log('key' + process.env.REACT_APP_AIR_TABLE_API_KEY)
-    var base = new Airtable({apiKey: process.env.REACT_APP_AIR_TABLE_API_KEY}).base('appbTi7sjlAEMnht7');
+   var key=process.env.REACT_APP_AIR_TABLE_API_KEY;
+   key=key +'';
+    var base = new Airtable({apiKey:key}).base('appbTi7sjlAEMnht7');
   var info=/*JSON.parse(event.body)||*/{"name":"fakedata"};
     console.log("body" +event.body)
     console.log(info.name);
 base('Table 1').create([
     {
       "fields": {
-        "Name": 'jjj',
+        "Name": info.name,
         "Email": "howdy.com",
         "Total Fries Cost": 43
       }
