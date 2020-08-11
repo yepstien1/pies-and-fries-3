@@ -45,11 +45,11 @@ console.log("hi from end of func")
 
 
 const fetch = require("node-fetch")
-data = {"records":[{"id":"rec6fKsp9dcLh2UwZ","fields":{"Name":"bomb","Email":"bob@bob.com","Total Fries Cost":23}},{"id":"recL6wFUPMUiYgq9v","fields":{"Name":"howdy","Email":"howdy.com","Total Fries Cost":43}}]})
+const data = {"records":[{"id":"rec6fKsp9dcLh2UwZ","fields":{"Name":"bomb","Email":"bob@bob.com","Total Fries Cost":23}},{"id":"recL6wFUPMUiYgq9v","fields":{"Name":"howdy","Email":"howdy.com","Total Fries Cost":43}}]}
 const neder =fetch('https://api.airtable.com/v0/appbTi7sjlAEMnht7/Table%201', {
         method: 'patch',
         body:    JSON.stringify(data),
-		'Authorization' : 'Bearer  ${process.env.REACT_APP_AIR_TABLE_API_KEY}',
+		'Authorization' : `Bearer  ${process.env.REACT_APP_AIR_TABLE_API_KEY}`,
         headers: { 'Content-Type': 'application/json' },
     })
     .then(res => res.json())
