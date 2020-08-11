@@ -6,10 +6,10 @@ console.log(context);
 
     var Airtable = require('airtable');
    // console.log('key' + process.env.REACT_APP_AIR_TABLE_API_KEY)
-   var key=process.env.REACT_APP_AIR_TABLE_API_KEY;
-   key='keyjoByLiYegLzgi0';
+  
+  
     
-    var base = new Airtable({apiKey:key}).base('appbTi7sjlAEMnht7');
+    //var base = new Airtable({apiKey:key}).base('appbTi7sjlAEMnht7');
   var info=/*JSON.parse(event.body)||*/{"name":"fakedata"};
     console.log("body" +event.body)
     console.log(info.name);
@@ -62,6 +62,6 @@ const neder =fetch('https://api.airtable.com/v0/appbTi7sjlAEMnht7/Table%201', {
 }, err => {
   console.error(err)
 }) 
-
+console.log("hi from end of func")
 
 }
