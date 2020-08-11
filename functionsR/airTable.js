@@ -28,7 +28,7 @@ base('Table 1').create([
   ])
   console.log("Request issued", airTablePromise)
 
-   airTablePromise.then(records => {
+   await airTablePromise.then(records => {
   console.info("Worked!", records)
   records.forEach(x => console.log(x.getId()))
 }, err => {
