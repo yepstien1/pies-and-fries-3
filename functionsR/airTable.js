@@ -6,7 +6,7 @@ console.log(context);
 
     var Airtable = require('airtable');
     var base = new Airtable({apiKey:process.env.REACT_APP_AIR_TABLE_API_KEY}).base('appbTi7sjlAEMnht7');
-  var info=/*JSON.parse(event.body)||*/{"name":"fakedata"};
+  var info=JSON.parse(event.body);
     console.log("body" +event.body)
     console.log(info.name);
    const airTablePromise=
@@ -38,25 +38,5 @@ console.log("hi from end of func")
 
 
 
-/*
 
-const fetch = require("node-fetch")
-const data = {"records":[{"id":"rec6fKsp9dcLh2UwZ","fields":{"Name":"bomb","Email":"bob@bob.com","Total Fries Cost":23}},{"id":"recL6wFUPMUiYgq9v","fields":{"Name":"howdy","Email":"howdy.com","Total Fries Cost":43}}]}
-const neder =fetch('https://api.airtable.com/v0/appbTi7sjlAEMnht7/Table%201', {
-        method: 'patch',
-        body:    JSON.stringify(data),
-		'Authorization' : `Bearer  ${key}`,
-        headers: { 'Content-Type': 'application/json' },
-    })
-    
-	console.log("Request issued", neder)
-
-   neder.then(records => {
-  console.info("Worked!", records)
-  records.forEach(x => console.log(x.getId()))
-}, err => {
-  console.error(err)
-}) 
-console.log("hi from end of func")
-*/
 }
