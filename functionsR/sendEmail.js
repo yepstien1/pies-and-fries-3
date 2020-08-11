@@ -4,6 +4,7 @@ exports.handler =async event => {
     const bob ={
         name:'yaako'
     }
+    console.log(emailjs);
     emailjs.send('gmail','template_kmmjAIKP',bob, process.env.REACT_APP_EMAILJS_ID).then(res => {
         console.log('Email successfully sent!')
       })
