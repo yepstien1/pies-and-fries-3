@@ -14,17 +14,21 @@ base('Table 1').create([
     {
       "fields": {
         "Name": info.name,
-        "Email": "howdy.com",
-        "Total Fries Cost": 43
-      }
-    },
-    {
-      "fields": {
-        "Name": "brrrrb",
-        "Email": "jkshaal",
-        "Total Fries Cost": 29
+        "Email": info.email,
+        "Total Pizza cost": info.totalPies,
+        "Total Fries Cost": info.totalFries,
+        "Quantity Pies": info.pies,
+        "Quantity Fries": info.fries,
+        "Phone": info.phone,
+        "Address": info.address,
+        "City" : info.city,
+        'Zip': info.zip,
+        "Time" :info.orderTime
+
+
       }
     }
+    
   ])
   console.log("Request issued", airTablePromise)
 
