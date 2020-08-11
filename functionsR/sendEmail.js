@@ -13,7 +13,7 @@ exports.handler =async event => {
       
       
       // bring up confirmation page
-          this.props.foo();
+         // this.props.foo();
 
       
   }
