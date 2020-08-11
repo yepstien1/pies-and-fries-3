@@ -1,6 +1,6 @@
-import emailjs from 'emailjs-com';
+
 exports.handler =async event => {
-   
+   const emailjs= require('emailjs-com')
     const bob ={
         name:'yaako'
     }

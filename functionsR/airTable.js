@@ -9,6 +9,7 @@ console.log(context);
   var info=JSON.parse(event.body);
     console.log("body" +event.body)
     console.log(info.name);
+    //may want to refomat at a later point
    const airTablePromise=
 base('Table 1').create([
     {
