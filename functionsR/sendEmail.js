@@ -11,15 +11,16 @@ const emailText =`Pies : ${info.pies}  Fries :${info.fries}  Price total : ${inf
     const msg = [{
       to: `pizzaduringcovid@gmail.com`, 
       from: 'pizzaduringcovid@gmail.com',
-      subject: 'Pizza Order Confirmed!',
-      text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
+      subject: 'Order processed',
+      text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total} Address : ${info.address},  ${info.address}  ${info.city}
+      ${info.zip}  Phone : ${info.phone}  @  ${info.time}`,
       html: `<strong>${emailText}</strong>`,
     },
     {
       to: info.email, 
       from: 'pizzaduringcovid@gmail.com',
       subject: 'Pizza Order Confirmed!',
-      text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
+      text: `${emailText}`,
       html: `<strong>${emailText}</strong>`,
     },
   ];
