@@ -4,7 +4,7 @@ exports.handler =async event => {
     // using Twilio SendGrid's v3 Node.js Library
     // https://github.com/sendgrid/sendgrid-nodejs
     const sgMail = require('@sendgrid/mail');
-  
+  console.log(process.env.REACT_APP_SENDGRID)
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID);
 
 
@@ -20,7 +20,7 @@ exports.handler =async event => {
         try {
           await sgMail.send(msg);
         }   catch (error) {
-          console.error(error);
+            console.error(error);
       
           if (error.response) {
             console.error(error.response.body)
@@ -29,7 +29,7 @@ exports.handler =async event => {
       })();
 
 
-     
+      console.log("hi from end of func");
     
    
   }
