@@ -1,21 +1,37 @@
 
 exports.handler =async event => {
-   const emailjs= require('emailjs-com')
-    const bob ={
-        name:'yaako'
-    }
-    console.log(emailjs);
-    emailjs.send('gmail','template_kmmjAIKP',bob, process.env.REACT_APP_EMAILJS_ID).then(res => {
-        console.log('Email successfully sent!')
-      })
-      // Handle errors here however you like, or use a React error boundary
-      .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
-      
-      
-      // bring up confirmation page
-         // this.props.foo();
+ 
+    // using Twilio SendGrid's v3 Node.js Library
+    // https://github.com/sendgrid/sendgrid-nodejs
+    const sgMail = require('@sendgrid/mail');
+  
+    sgMail.setApiKey(process.env.REACT_APP_SENDGRID);
 
+
+    const msg = {
+      to: 'pizzaduringcovid@gmail.com',
+      from: 'pizzaduringcovid@gmail.com',
+      subject: 'Sending with Twilio SendGrid is Fun',
+      text: 'and easy to do anywhere, even with Node.js',
+      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    };
+
+    (async () => {
+        try {
+          await sgMail.send(msg);
+        }   catch (error) {
+          console.error(error);
       
+          if (error.response) {
+            console.error(error.response.body)
+          } 
+        }
+      })();
+
+
+     
+    
+   
   }
   
 
