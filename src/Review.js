@@ -258,13 +258,15 @@ fetch("https://pies-and-fries.netlify.app/.netlify/functions/sendEmail", {
                                                         .catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
                                                         
                                                         
-                                                        // bring up confirmation page
-                                                            this.props.foo();
+                                                      
 
                                                         
                                                     }
                                                     */
 
+
+                                                      // bring up confirmation page
+                                                      this.props.foo();
 returnToOrderPage =() =>{
     this.props.foo('ordered');
 }
@@ -283,10 +285,7 @@ returnToPaymentInfo=() =>
    
 
 
-    componentDidMount() {
-        
-
-    }
+   
 
 
 
