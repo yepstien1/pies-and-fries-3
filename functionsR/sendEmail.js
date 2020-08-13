@@ -28,7 +28,7 @@ exports.handler =async event => {
         }
       })();
 */
-      const promise = await sgMail.send(msg);
+      const promise =  sgMail.send(msg);
       console.log("Request issued", promise)
       await promise.then(records => {
         console.info("Worked!", records)
