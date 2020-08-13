@@ -8,13 +8,21 @@ exports.handler =async event => {
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID);
 const emailText =`Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`
    
-    const msg = {
+    const msg = [{
       to: `pizzaduringcovid@gmail.com`, 
       from: 'pizzaduringcovid@gmail.com',
       subject: 'Pizza Order Confirmed!',
       text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
       html: `<strong>${emailText}</strong>`,
-    };
+    },
+    {
+      to: info.email, 
+      from: 'pizzaduringcovid@gmail.com',
+      subject: 'Pizza Order Confirmed!',
+      text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
+      html: `<strong>${emailText}</strong>`,
+    },
+  ];
 
    
       const promise =  sgMail.send(msg);
