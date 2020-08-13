@@ -9,7 +9,7 @@ exports.handler =async event => {
 const emailText =`Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`
    
     const msg = {
-      to: `pizzaduringcovid@gmail.com, ${info.email}`,
+      to: `pizzaduringcovid@gmail.com`, 
       from: 'pizzaduringcovid@gmail.com',
       subject: 'Pizza Order Confirmed!',
       text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
