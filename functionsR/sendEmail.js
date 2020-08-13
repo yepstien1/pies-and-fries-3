@@ -7,27 +7,16 @@ exports.handler =async event => {
 
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID);
 
-
+    var info=JSON.parse(event.body);
     const msg = {
       to: 'pizzaduringcovid@gmail.com',
       from: 'pizzaduringcovid@gmail.com',
-      subject: 'Sending with Twilio SendGrid is Fun',
-      text: 'and easy to do anywhere, even with Node.js',
+      subject: 'Pizza Order Confirmed!',
+      text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
       html: '<strong>and easy to do anywhere, even with Node.js</strong>',
     };
 
-   /* (async () => {
-        try {
-          await sgMail.send(msg);
-        }   catch (error) {
-            console.error(error);
-      
-          if (error.response) {
-            console.error(error.response.body)
-          } 
-        }
-      })();
-*/
+   
       const promise =  sgMail.send(msg);
       console.log("Request issued", promise)
       await promise.then(records => {
