@@ -6,14 +6,14 @@ exports.handler =async event => {
     const sgMail = require('@sendgrid/mail');
 
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID);
-
+const emailText =`Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`
     var info=JSON.parse(event.body);
     const msg = {
       to: 'pizzaduringcovid@gmail.com',
       from: 'pizzaduringcovid@gmail.com',
       subject: 'Pizza Order Confirmed!',
       text: `Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`,
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+      html: `<strong>${emailText}</strong>`,
     };
 
    
