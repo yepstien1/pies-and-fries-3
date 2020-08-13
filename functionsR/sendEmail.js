@@ -4,10 +4,10 @@ exports.handler =async event => {
     // using Twilio SendGrid's v3 Node.js Library
     // https://github.com/sendgrid/sendgrid-nodejs
     const sgMail = require('@sendgrid/mail');
-
+    var info=JSON.parse(event.body);
     sgMail.setApiKey(process.env.REACT_APP_SENDGRID);
 const emailText =`Pies : ${info.pies}  Fries :${info.fries}  Price total : ${info.total}`
-    var info=JSON.parse(event.body);
+   
     const msg = {
       to: 'pizzaduringcovid@gmail.com',
       from: 'pizzaduringcovid@gmail.com',
