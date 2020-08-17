@@ -187,7 +187,8 @@ Zip
 
             
             
-// Google sheets seemed to expect a 2d array so I tried this hack
+
+          
 var abbreviatedState ={
     name : this.state.fullName,
    email : this.state.email,
@@ -195,7 +196,7 @@ var abbreviatedState ={
     totalPies: this.state.totalPricePies,
     fries: this.state.fries,
     totalFries: this.state.totalPriceFries,
-    total : this.state.totalPriceFries+this.state.totalPricePies,
+    total : +this.state.totalPriceFries+ +this.state.totalPricePies,
     paymentInfo: this.state.paymentInfo,
     
    

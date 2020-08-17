@@ -10,6 +10,7 @@ console.log(context);
     console.log("body" +event.body)
     console.log(info.name);
     //may want to refomat at a later point
+    //info.totalPies and totalFries a string for some reason
    const airTablePromise=
 base('Table 1').create([
     {
