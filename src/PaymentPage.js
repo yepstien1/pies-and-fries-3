@@ -6,10 +6,10 @@ class PaymentPage extends React.Component {
 message:""
   }
     render() {
-        console.log(this.state)
+      
         return (
             
-                <form onSubmit={this.onClick}>
+                <form className="block" onSubmit={this.onClick  }>
                     <label>
                         Please enter your Venmo  or zelle  account info so we can bill you
                         <input type="text" id="payment info

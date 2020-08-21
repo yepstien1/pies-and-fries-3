@@ -20,7 +20,7 @@ class OrderPage extends React.Component {
 
     render() {
         return  (
-<div>
+<div className="block">
 <h1>What would you like ?</h1>
 <table>
     <tr>

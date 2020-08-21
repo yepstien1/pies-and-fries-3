@@ -20,7 +20,7 @@ class CustomerInfo extends React.Component
         return(
             
            
-                <form onSubmit={this.submit}>
+                <form onSubmit={this.submit} className="block">
                  <h1>Please enter your information below</h1>
                 <table>
 <tr>

@@ -34,7 +34,7 @@ class Review extends React.Component {
         return (
 
             
-<div>
+<div className="block">
 <h1>Does everything look right?</h1>
                 <form  >
                 <table>
