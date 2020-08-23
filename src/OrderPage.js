@@ -1,5 +1,8 @@
 import React from 'react';
 import { Button}  from 'react-bootstrap'
+import { FaPlus, FaMinus } from "react-icons/fa";
+
+
 
 class OrderPage extends React.Component {
 
@@ -22,30 +25,18 @@ class OrderPage extends React.Component {
         return  (
 <div className="block">
 <h1>What would you like ?</h1>
+
+
+
+
 <table>
     <tr>
-    <td align = 'justified'>Pies ($18) How many would you like</td>
-<td><select onChange={this.handlePizzaChange} >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select></td>
+    <td align = 'justified'>Pies ($18) How many would you like  <button onClick={this.incrementPies}><FaPlus/></button>  <button onClick ={this.decrementPies}><FaMinus/></button>  </td>
+
     </tr>
     <tr>
-    <td align = 'justified'> Fries ($3) How many would you like</td>
-<td>
- 
-<select onChange={this.handleFriesChange}>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+    <td align = 'justified'> Fries ($3) How many would you like <button onClick={this.incrementFries} ><FaPlus/></button>  <button onClick ={this.decrementFries}><FaMinus/></button>   </td>
 
-                    </td>
     </tr>
     <tr>
     <textarea value={this.getTotalString()}/> <br/>
@@ -61,7 +52,9 @@ class OrderPage extends React.Component {
                 <h4>{this.state.warning}</h4>
 
              
-              
+                        
+
+
 
 
 
@@ -132,25 +125,65 @@ onClick =(e) =>{
         return total;
     }
 
-    handlePizzaChange=  (event ) => {
-        this.setState({pies:event.target.value })
+    incrementPies=() =>{
+     var   oldState =this.state.pies;
+     oldState++;
+     console.log("old state:" +oldState);
+        this.setState({pies:oldState}, this.ChangeTotalPies(oldState))
+       
+
+    }
+
+    decrementPies=() =>{
+        var   oldState =this.state.pies;
+        oldState--;
+           this.setState({pies:oldState})
+           this.ChangeTotalPies();
+   
+       }
+
+       
+    incrementFries=() =>{
+        var   oldState =this.state.fries;
+        oldState=oldState+1;
+           this.setState({fries:oldState})
+           this.ChangeTotalFries();
+   
+       }
+   
+       decrementFries=() =>{
+           var   oldState =this.state.fries;
+           oldState--;
+              this.setState({fries:oldState})
+              this.ChangeTotalFries();
+      
+          }
+
+
+
+
+    ChangeTotalPies=  (oldState) => {
+        
         let piePrice =18;
+        console.log("pies in change"+this.state.pies)
 
-        let total = piePrice* +event.target.value;
+        let total = piePrice* oldState
 
-        // for self why does this not work    let total = piePrice* +this.state.pies;
+       
         console.log("total pie price"+total)
+
         this.setState({totalPricePies:total })
+       
        
 
     }
 
 
 
-    handleFriesChange=  (event ) => {
-        this.setState({fries: event.target.value})
+    ChangeTotalFries=  ( ) => {
+     
         let friePrice=3;
-        let  total =friePrice* +event.target.value;
+        let  total =friePrice* this.state.fries;
         console.log("total pie price"+total)
         this.setState({totalPriceFries:total })
 
