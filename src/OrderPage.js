@@ -31,11 +31,11 @@ class OrderPage extends React.Component {
 
 <table>
     <tr>
-    <td align = 'justified'>Pies ($18) How many would you like  <button onClick={this.incrementPies}><FaPlus/></button>  <button onClick ={this.decrementPies}><FaMinus/></button>  </td>
+    <td align = 'justified'>Pies ($18) How many would you like</td><button onClick={this.incrementPies}><FaPlus/> </button><button onClick ={this.decrementPies}><FaMinus/></button>
 
     </tr>
     <tr>
-    <td align = 'justified'> Fries ($3) How many would you like <button onClick={this.incrementFries} ><FaPlus/></button>  <button onClick ={this.decrementFries}><FaMinus/></button>   </td>
+    <td align = 'justified'> Fries ($3) How many would you like</td><button onClick={this.incrementFries} ><FaPlus/> </button><button onClick ={this.decrementFries}><FaMinus/></button>
 
     </tr>
     <tr>
@@ -112,9 +112,9 @@ onClick =(e) =>{
     incrementPies=() =>{
          this.setState({warning:''})
      var   oldState =this.state.pies;
-   var newState=  oldState+ 1;
+     oldState++;
      console.log("old state:" +oldState);
-        this.setState({pies:newState}, this.ChangeTotalPies)
+        this.setState({pies:oldState}, this.ChangeTotalPies)
         
        
 
