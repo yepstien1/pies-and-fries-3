@@ -68,25 +68,9 @@ class OrderPage extends React.Component {
  );
 }
 
-log=() =>{
-    const winston = require('winston');
-    const logger = winston.createLogger({
-        level: 'info',
-        format: winston.format.json(),
-        defaultMeta: { service: 'user-service' },
-        transports: [
-          //
-          // - Write to all logs with level `info` and below to `combined.log` 
-          // - Write all logs error (and below) to `error.log`.
-          //
-         
-          new winston.transports.File({ filename: 'error.log', level: 'error' }),
-          new winston.transports.File({ filename: 'combined.log' })
-        ]
-      }); 
-      logger.log("hi"); 
+
      
-}
+
 orderFetch=() =>
 {
   //  this.log();
@@ -117,57 +101,81 @@ onClick =(e) =>{
 
     getTotalString=() =>{
         //let total = "Total is $ ";
-        let numberTotal=0;
+        var numberTotal=0;
         numberTotal= +this.state.totalPriceFries + +this.state.totalPricePies;
         console.log(numberTotal)
-     let   total =`Total is ${this.state.pies} pies and ${this.state.fries} fries  = $ ${numberTotal}`;
+     var  total =`Total is ${this.state.pies} pies and ${this.state.fries} fries  = $ ${numberTotal}`;
 
         return total;
     }
 
     incrementPies=() =>{
+         this.setState({warning:''})
      var   oldState =this.state.pies;
-     oldState++;
+   var newState=  oldState+ 1;
      console.log("old state:" +oldState);
-        this.setState({pies:oldState}, this.ChangeTotalPies(oldState))
+        this.setState({pies:newState}, this.ChangeTotalPies)
+        
        
 
     }
 
     decrementPies=() =>{
         var   oldState =this.state.pies;
-        oldState--;
-           this.setState({pies:oldState})
-           this.ChangeTotalPies();
+        if(oldState>0)
+        {
+            
+           
+            oldState--;
+            this.setState({pies:oldState},  this.ChangeTotalPies)
+          
+        }
+
+        else {
+            this.setState({warning:'Cannot have negative quantaties'})
+        }
+       
    
        }
 
        
     incrementFries=() =>{
+        this.setState({warning:''})
         var   oldState =this.state.fries;
         oldState=oldState+1;
-           this.setState({fries:oldState})
-           this.ChangeTotalFries();
+           this.setState({fries:oldState},this.ChangeTotalFries)
+           
    
        }
    
        decrementFries=() =>{
            var   oldState =this.state.fries;
-           oldState--;
-              this.setState({fries:oldState})
-              this.ChangeTotalFries();
+
+           if(oldState>0)
+           {
+               
+              
+               oldState--;
+               this.setState({fries:oldState} ,this.ChangeTotalFries)
+              
+           }
+   
+           else {
+               this.setState({warning:'Cannot have negative quantaties'})
+           }
+          
       
           }
 
 
 
 
-    ChangeTotalPies=  (oldState) => {
-        
-        let piePrice =18;
+    ChangeTotalPies=  () => {
+        console.log(" changeTotalPie func" +new Date().toLocaleString())
+        var piePrice =18;
         console.log("pies in change"+this.state.pies)
 
-        let total = piePrice* oldState
+        var total = piePrice* this.state.pies
 
        
         console.log("total pie price"+total)
