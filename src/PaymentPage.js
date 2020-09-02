@@ -35,7 +35,7 @@ export default function PaymentPage() {
       
 
       window
-        .fetch(("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
+        .fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -53,7 +53,7 @@ export default function PaymentPage() {
           console.log("error:" +err)
         });
 
-    //ends here
+ 
     }, []);
     
     const cardStyle = {
