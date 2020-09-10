@@ -10,6 +10,7 @@ import {
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // loadStripe is initialized with your real test publishable API key.
+// remember to replace api key with process.env ect
 const promise = loadStripe(process.env.REACT_APP_STRIPE);
 export default function PaymentPage() {
   return (
@@ -37,6 +38,7 @@ export default function PaymentPage() {
       window
         .fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/json"
           },
