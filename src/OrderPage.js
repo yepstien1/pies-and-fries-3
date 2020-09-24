@@ -53,7 +53,7 @@ class OrderPage extends React.Component {
 
              
                         
-
+<a href="./functions/acceptPayment">link</a>
 
 
 

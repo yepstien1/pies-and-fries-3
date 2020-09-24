@@ -10,8 +10,8 @@ import {
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // loadStripe is initialized with your real test publishable API key.
-// remember to replace api key with process.env ect
-const promise = loadStripe(process.env.REACT_APP_STRIPE);
+const stripeKey=process.env.REACT_APP_STRIPE;
+const promise = loadStripe(stripeKey);
 export default function PaymentPage() {
   return (
     <div className="PaymentPage">
