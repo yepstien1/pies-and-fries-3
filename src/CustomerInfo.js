@@ -154,7 +154,7 @@ e.preventDefault();
         
 
         sendToParent =()=>{
-            this.props.foo(this.state);
+            this.props.methodToPassToChild(this.state);
 
         }
     
