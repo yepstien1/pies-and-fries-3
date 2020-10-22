@@ -23,6 +23,7 @@ function PayMentPage() {
         });
 
         if (result.error) {
+            console.log(result.error.message)
             // If `redirectToCheckout` fails due to a browser or network
             // error, display the localized error message to your customer
             // using `result.error.message`.
