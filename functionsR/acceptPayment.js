@@ -31,6 +31,8 @@ exports.handler = async (event, context) => {
 
         res.json({id: session.id});
     });
-
+    app.listen("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", () => {
+        console.log("listeining ")
+    })
 
 }
