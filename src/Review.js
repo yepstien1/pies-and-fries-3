@@ -1,5 +1,5 @@
 import React from "react";
-
+// Todo move sendemail and savetotable
 
 require('dotenv').config()
 
@@ -197,6 +197,22 @@ class Review extends React.Component {
 
 
         fetch("https://pies-and-fries.netlify.app/.netlify/functions/sendEmail", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(abbreviatedState),
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
+        fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
