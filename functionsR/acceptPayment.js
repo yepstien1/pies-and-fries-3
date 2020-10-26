@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
 // See your keys here: https://dashboard.stripe.com/account/apikeys
     const stripe = require('stripe')('sk_test_51HIfiHBNlDExaBq31LKsflS1EOT0zQQXt5uDpsLR1DQ1HPGzXzi4tM40quOiEPbAFGkcpXVCMOt7vRotzKA2xVcL00Tc2HcrDg');
 
-    app.post('/create-checkout-session', async (req, res) => {
+
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [
@@ -29,10 +29,5 @@ exports.handler = async (event, context) => {
             cancel_url: 'https://example.com/cancel',
         });
 
-        res.json({id: session.id});
-    });
-    app.listen("https://pies-and-fries.netlify.app/", () => {
-        console.log("listeining ")
-    })
 
 }
