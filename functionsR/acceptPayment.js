@@ -30,9 +30,9 @@ exports.handler = async (event, context) => {
         });
     console.log("session with stringify:" + JSON.stringify(session))
     console.log("session withput stringify:" + session)
-    console.log("object:" + JSON.stringify(session.object.checkout.session))
+    console.log("object:" + JSON.stringify(session.object))
 
-    console.log("checkout session:" + JSON.stringify(session.object.checkout.session))
+    console.log("checkout session:" + JSON.stringify(session.object))
 
 
 }
