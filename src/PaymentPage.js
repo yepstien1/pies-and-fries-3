@@ -19,8 +19,9 @@ function PayMentPage() {
             }
         });
 
-        const session = await response.json();
-        console.log("sessinon that comes from fetch in payment page" + JSON.stringify(session))
+        //const session = await response.json();
+        const session = await response
+        console.log("sessinon that comes from fetch in payment page" + JSON.stringify(response))
         // When the customer clicks on the button, redirect them to Checkout.
         const result = await stripe.redirectToCheckout({
             sessionId: session.id,
