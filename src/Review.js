@@ -212,7 +212,7 @@ class Review extends React.Component {
             });
 
 
-        fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
+      /*  fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -227,7 +227,7 @@ class Review extends React.Component {
                 console.error('Error:', error);
             });
 
-
+*/
         // bring up confirmation page
         this.props.methodToPassToChild();
     }
