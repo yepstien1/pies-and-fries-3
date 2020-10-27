@@ -13,7 +13,7 @@ function PayMentPage() {
         const stripe = await stripePromise;
 
         // Call your backend to create the Checkout Session
-        const response = await fetch('"https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment/create-checkout-session', {method: 'POST'});
+        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/create-checkout-session", {method: 'POST'});
 
         const session = await response.json();
 
