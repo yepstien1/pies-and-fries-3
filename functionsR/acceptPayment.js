@@ -28,6 +28,13 @@ exports.handler = async (event, context) => {
             success_url: 'https://example.com/success',
             cancel_url: 'https://example.com/cancel',
         });
+    // saw this in video perhaps it will help
+    return {
+        statusCode: 200,
+        body: JSON.stringify({
+            sessionId: session.id
+        })
+    }
     console.log("session with stringify:" + JSON.stringify(session))
     console.log("session withput stringify:" + session)
     console.log("object:" + JSON.stringify(session.object))
