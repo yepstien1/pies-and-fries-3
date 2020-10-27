@@ -1,5 +1,5 @@
 // This example sets up an endpoint using the Express framework.
-// Watch this video to get started: https://youtu.be/rPR2aJ6XnAc. just testing
+// Watch this video to get started: https://youtu.be/rPR2aJ6XnAc.
 //const axios = require('axios')
 const express = require('express');
 exports.handler = async (event, context) => {
