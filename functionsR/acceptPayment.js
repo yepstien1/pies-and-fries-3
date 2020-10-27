@@ -28,6 +28,8 @@ exports.handler = async (event, context) => {
             success_url: 'https://example.com/success',
             cancel_url: 'https://example.com/cancel',
         });
+    console.log("session with stringify:" + JSON.stringify(session))
+    console.log("session withput stringify:" + session)
 
 
 }
