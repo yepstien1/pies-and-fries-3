@@ -26,7 +26,7 @@ exports.handler = async (event, context) => {
             success_url: 'https://example.com/success',
             cancel_url: 'https://example.com/cancel',
         });
-
+console.log("hi from func")
     return {
         statusCode: 200,
         body: JSON.stringify({
