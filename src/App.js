@@ -2,7 +2,7 @@ import React from 'react';
 //todo random comment
 import OrderPage from './OrderPage.js'
 import CustomerInfo from './CustomerInfo.js'
-//import PaymentPage from './PaymentPage'
+import PaymentPage from './PaymentPage'
 import Review from './Review'
 import Confirmation from './Confirmation'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -75,11 +75,11 @@ class App extends React.Component {
         else if (!this.state.confirmed)
             element = <Review {...this.state} methodToPassToChild={this.fetchFromReview}/>
 //Todo might need to change this
-        /* else if (!this.state.paymentSubmitted)
-             element = <PaymentPage {...this.state} methodToPassToChild={this.fetchFromReview}/>
- */
+        else if (!this.state.paymentSubmitted)
+            element = <PaymentPage {...this.state} methodToPassToChild={this.fetchFromReview}/>
 
-        else /*if (this.state.confirmed)*/
+
+        else if (this.state.confirmed)
             element = <Confirmation/>
 
         return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import {loadStripe} from '@stripe/stripe-js';
+
 // Todo move sendemail and savetotable
 
 require('dotenv').config()
@@ -162,7 +162,7 @@ class Review extends React.Component {
     }
 
 
-    onClick = async (event) => {
+    onClick = (event) => {
 
 
         var abbreviatedState = {
@@ -183,37 +183,14 @@ class Review extends React.Component {
             orderTime: new Date().toLocaleString()
         }
 
-        const stripePromise = loadStripe('pk_test_51HIfiHBNlDExaBq3QpRDRJ7R1RFLJ3r5TrYDKUk34iq8gY1sXd5Jyh2OSGXpNEgNcsgTC3qBhkXjiKQ9LfYaBxpt00a6dtcUiR');
-        // Get Stripe.js instance
-        const stripe = await stripePromise;
 
-        // Call your backend to create the Checkout Session
-        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
-            method: 'POST', headers: {
+        fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
+            method: 'POST',
+            headers: {
                 'Content-Type': 'application/json',
-            }
-        });
-        const session = await response.json();
-        // When the customer clicks on the button, redirect them to Checkout.
-        const result = await stripe.redirectToCheckout({
-            sessionId: session.sessionId
-        });
-
-        if (result.error) {
-            console.log(result.error.message)
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer
-            // using `result.error.message`.
-        }
-
-
-      await fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(abbreviatedState),
-      })
+            },
+            body: JSON.stringify(abbreviatedState),
+        })
           .then(response => response.text())
           .then(data => {
               console.log('Success:', data);
@@ -223,7 +200,7 @@ class Review extends React.Component {
             });
 
 
-        await fetch("https://pies-and-fries.netlify.app/.netlify/functions/sendEmail", {
+        fetch("https://pies-and-fries.netlify.app/.netlify/functions/sendEmail", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
