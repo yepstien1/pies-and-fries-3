@@ -207,23 +207,23 @@ class Review extends React.Component {
         }
 
 
-        fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(abbreviatedState),
-        })
-            .then(response => response.text())
-            .then(data => {
-                console.log('Success:', data);
-            })
+      await fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(abbreviatedState),
+      })
+          .then(response => response.text())
+          .then(data => {
+              console.log('Success:', data);
+          })
             .catch((error) => {
                 console.error('Error:', error);
             });
 
 
-        fetch("https://pies-and-fries.netlify.app/.netlify/functions/sendEmail", {
+        await fetch("https://pies-and-fries.netlify.app/.netlify/functions/sendEmail", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
