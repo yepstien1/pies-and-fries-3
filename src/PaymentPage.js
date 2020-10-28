@@ -18,12 +18,7 @@ function PayMentPage() {
                 'Content-Type': 'application/json',
             }
         });
-//seems to be returning something empty
         const session = await response.json();
-        //const session = await response
-        console.log("session:" + JSON.stringify(session))
-        console.log("id" + session.id)
-
         // When the customer clicks on the button, redirect them to Checkout.
         const result = await stripe.redirectToCheckout({
             sessionId: session.sessionId
@@ -36,7 +31,6 @@ function PayMentPage() {
             // using `result.error.message`.
         }
     };
-
 
     return (
         <button role="link" onClick={handleClick}>
