@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
 
 // Set your secret key. Remember to switch to your live secret key in production!
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-    const stripe = require('stripe')('sk_test_51HIfiHBNlDExaBq31LKsflS1EOT0zQQXt5uDpsLR1DQ1HPGzXzi4tM40quOiEPbAFGkcpXVCMOt7vRotzKA2xVcL00Tc2HcrDg');
+    const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SK);
 
 
         const session = await stripe.checkout.sessions.create({

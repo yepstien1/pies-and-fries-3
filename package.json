@@ -36,8 +36,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "echo\"errpor not test specified\" && exit 1",
-    "start:lambda": "netlify-lambda serve functions",
-    "build:lambda": "netlify-lambda build functions",
+    "start:lambda": "netlify-lambda serve functionsR",
+    "build:lambda": "netlify-lambda build functionsR",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
