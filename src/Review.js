@@ -1,8 +1,12 @@
 import React from "react";
+
+import {loadStripe} from '@stripe/stripe-js';
 // Todo move sendemail and savetotable
 
 require('dotenv').config()
-
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe('pk_test_51HIfiHBNlDExaBq3QpRDRJ7R1RFLJ3r5TrYDKUk34iq8gY1sXd5Jyh2OSGXpNEgNcsgTC3qBhkXjiKQ9LfYaBxpt00a6dtcUiR');
 
 class Review extends React.Component {
     state = {
@@ -158,7 +162,7 @@ class Review extends React.Component {
     }
 
 
-    onClick = (event) => {
+    onClick = async (event) => {
 
 
         var abbreviatedState = {
@@ -177,6 +181,29 @@ class Review extends React.Component {
             city: this.state.city,
             zip: this.state.zip,
             orderTime: new Date().toLocaleString()
+        }
+
+
+        // Get Stripe.js instance
+        const stripe = await stripePromise;
+
+        // Call your backend to create the Checkout Session
+        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
+            method: 'POST', headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        const session = await response.json();
+        // When the customer clicks on the button, redirect them to Checkout.
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.sessionId
+        });
+
+        if (result.error) {
+            console.log(result.error.message)
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
         }
 
 
@@ -212,7 +239,7 @@ class Review extends React.Component {
             });
 
 
-        this.props.methodToPassToChild();
+        // this.props.methodToPassToChild();
     }
     returnToOrderPage = () => {
         this.props.methodToPassToChild('ordered');
