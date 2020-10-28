@@ -2,7 +2,7 @@ import React from 'react';
 //todo random comment
 import OrderPage from './OrderPage.js'
 import CustomerInfo from './CustomerInfo.js'
-import PaymentPage from './PaymentPage'
+//import PaymentPage from './PaymentPage'
 import Review from './Review'
 import Confirmation from './Confirmation'
 import 'bootstrap/dist/css/bootstrap.min.css';
