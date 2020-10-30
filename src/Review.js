@@ -150,7 +150,7 @@ class Review extends React.Component {
                     <br/>
 
 
-                    <button type='submit' onClick={this.onClick}>submit</button>
+                    <button onClick={this.onClick}>submit</button>
                     <button onClick={this.returnToOrderPage}>edit your order</button>
 
                     <button onClick={this.returnToCustomerInfo}>Edit your Address</button>
@@ -200,6 +200,7 @@ class Review extends React.Component {
             sessionId: session.sessionId
         });
 
+
         if (result.error) {
             console.log(result.error.message)
             // If `redirectToCheckout` fails due to a browser or network
@@ -208,13 +209,13 @@ class Review extends React.Component {
         }
 
 
-         fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json',
-             },
-             body: JSON.stringify(abbreviatedState),
-         })
+        fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(abbreviatedState),
+        })
             .then(response => response.text())
             .then(data => {
                 console.log('Success:', data);
