@@ -27,12 +27,12 @@ exports.handler = async (event, context) => {
             cancel_url: 'https://example.com/cancel',
         });
 console.log("hi from func")
-    return {
-        statusCode: 200,
-        body: JSON.stringify({
-            sessionId: session.id
-        })
-    }
+   return {
+       statusCode: 200,
+       body: JSON.stringify({
+           sessionId: session.id
+       })
+   }
 
 
 

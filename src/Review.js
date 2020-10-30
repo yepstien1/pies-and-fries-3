@@ -209,7 +209,7 @@ class Review extends React.Component {
         }
 
 
-        fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
+     /*   fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -239,7 +239,7 @@ class Review extends React.Component {
             .catch((error) => {
                 console.error('Error:', error);
             });
-
+*/
 
         this.props.methodToPassToChild();
     }
