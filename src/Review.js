@@ -184,7 +184,7 @@ class Review extends React.Component {
             orderTime: new Date().toLocaleString()
         }
 
-
+console.log(abbreviatedState);
         // Get Stripe.js instance
         const stripe = await stripePromise;
 
