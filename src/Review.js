@@ -4,7 +4,7 @@ import {loadStripe} from "@stripe/stripe-js";
 
 // Todo move sendemail and savetotable
 
-require('dotenv').config()
+
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe('pk_test_51HIfiHBNlDExaBq3QpRDRJ7R1RFLJ3r5TrYDKUk34iq8gY1sXd5Jyh2OSGXpNEgNcsgTC3qBhkXjiKQ9LfYaBxpt00a6dtcUiR');
@@ -166,7 +166,7 @@ class Review extends React.Component {
     onClick = async (event) => {
 
 
-        var abbreviatedState = {
+      /*  var abbreviatedState = {
             name: this.state.fullName,
             email: this.state.email,
             pies: this.state.pies,
@@ -185,6 +185,8 @@ class Review extends React.Component {
         }
 
 console.log(abbreviatedState);
+*/
+
         // Get Stripe.js instance
         const stripe = await stripePromise;
 
@@ -241,7 +243,7 @@ console.log(abbreviatedState);
             });
 */
 
-       // this.props.methodToPassToChild();
+        this.props.methodToPassToChild();
     }
     returnToOrderPage = () => {
         this.props.methodToPassToChild('ordered');
