@@ -150,7 +150,7 @@ class Review extends React.Component {
                     <br/>
 
 
-                    <button onClick={this.onClick}>submit</button>
+                    <button role="link" onClick={this.onClick}>submit</button>
                     <button onClick={this.returnToOrderPage}>edit your order</button>
 
                     <button onClick={this.returnToCustomerInfo}>Edit your Address</button>
