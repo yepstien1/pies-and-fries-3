@@ -165,7 +165,7 @@ class Review extends React.Component {
 
     onClick = async (event) => {
 
-
+event.preventDefault();
       /*  var abbreviatedState = {
             name: this.state.fullName,
             email: this.state.email,
