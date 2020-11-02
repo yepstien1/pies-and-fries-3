@@ -21,17 +21,17 @@ class Review extends React.Component {
 
         return (
 
-            /*
+            <div>
 
-                           <h1>Does everything look right?</h1>
+                <h1>Does everything look right?</h1>
 
-                      <form>
-                               <table>
-                                   <tr>
-                                       <td
-                                           align="justify">Name
-                                       </td>
-                                       <td
+
+                <table>
+                    <tr>
+                        <td
+                            align="justify">Name
+                        </td>
+                        <td
                                            align="justify">
                                            <input type="text" id="fullname" value={this.state.fullName}/>
 
@@ -150,16 +150,13 @@ class Review extends React.Component {
 
                                <br/>
 
-           */
-            <div>
+
                 <button role="link" onClick={this.onClick}>submit</button>
                 <button onClick={this.returnToOrderPage}>edit your order</button>
 
                 <button onClick={this.returnToCustomerInfo}>Edit your Address</button>
                 <button onClick={this.returnToPaymentInfo}> Edit Payment Info</button>
             </div>
-
-            /*      </form> */
 
 
         );
