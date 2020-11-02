@@ -185,28 +185,6 @@ class Review extends React.Component {
         }
 
 
-        // Get Stripe.js instance
-        const stripe = await stripePromise;
-
-        // Call your backend to create the Checkout Session
-        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
-            method: 'POST', headers: {
-                'Content-Type': 'application/json',
-            }
-        });
-        const session = await response.json();
-        // When the customer clicks on the button, redirect them to Checkout.
-        const result = await stripe.redirectToCheckout({
-            sessionId: session.sessionId
-        });
-
-
-        if (result.error) {
-            console.log(result.error.message)
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer
-            // using `result.error.message`.
-        }
 
 
         fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
@@ -239,6 +217,30 @@ class Review extends React.Component {
             .catch((error) => {
                 console.error('Error:', error);
             });
+
+
+        // Get Stripe.js instance
+        const stripe = await stripePromise;
+
+        // Call your backend to create the Checkout Session
+        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
+            method: 'POST', headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        const session = await response.json();
+        // When the customer clicks on the button, redirect them to Checkout.
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.sessionId
+        });
+
+
+        if (result.error) {
+            console.log(result.error.message)
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
+        }
 
 
         //this.props.methodToPassToChild('confirmed');
