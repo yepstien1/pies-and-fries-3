@@ -165,7 +165,7 @@ class Review extends React.Component {
 
     onClick = async (event) => {
 
-event.preventDefault();
+
       /*  var abbreviatedState = {
             name: this.state.fullName,
             email: this.state.email,
@@ -183,9 +183,8 @@ event.preventDefault();
             zip: this.state.zip,
             orderTime: new Date().toLocaleString()
         }
-
-console.log(abbreviatedState);
 */
+
 
         // Get Stripe.js instance
         const stripe = await stripePromise;
@@ -243,7 +242,7 @@ console.log(abbreviatedState);
             });
 */
 
-      //  this.props.methodToPassToChild();
+        this.props.methodToPassToChild();
     }
     returnToOrderPage = () => {
         this.props.methodToPassToChild('ordered');

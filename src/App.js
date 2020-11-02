@@ -73,14 +73,14 @@ class App extends React.Component {
         else if (!this.state.infoSubmitted)
             element = <CustomerInfo methodToPassToChild={this.fetchFromCustomer}/>
         else if (!this.state.paymentSubmitted)
-            element = <PaymentPage methodToPassToChild={this.fetchFromPayment}/>
+            element = <Review methodToPassToChild={this.fetchFromReview}/>
         else if (!this.state.confirmed)
-            element = <Review {...this.state} methodToPassToChild={this.fetchFromReview}/>
-//Todo might need to change this
-        else if (!this.state.paymentSubmitted)
-            element = <PaymentPage {...this.state}/* methodToPassToChild={this.fetchFromReview}*//>
+            element = <PaymentPage {...this.state}/>
+        /*Todo might need to change this
+                else if (!this.state.paymentSubmitted)
+                    element = <PaymentPage {...this.state}/* methodToPassToChild={this.fetchFromReview}/>
 
-
+        */
         else if (this.state.confirmed)
             element = <Confirmation/>
 
