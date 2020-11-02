@@ -56,7 +56,7 @@ class App extends React.Component {
             this.setState({infoSubmitted: false})
         else if (childData === 'paymentSubmitted')
             this.setState({paymentSubmitted: false})
-        else {
+        else if (childData === 'confirmed') {
             this.setState({confirmed: true})
         }
 
