@@ -243,7 +243,7 @@ console.log(abbreviatedState);
             });
 */
 
-        this.props.methodToPassToChild();
+      //  this.props.methodToPassToChild();
     }
     returnToOrderPage = () => {
         this.props.methodToPassToChild('ordered');
