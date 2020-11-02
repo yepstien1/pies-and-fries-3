@@ -242,7 +242,7 @@ class Review extends React.Component {
             });
 */
 
-        this.props.methodToPassToChild();
+      //  this.props.methodToPassToChild();
     }
     returnToOrderPage = () => {
         this.props.methodToPassToChild('ordered');
