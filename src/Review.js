@@ -2,7 +2,7 @@ import React from "react";
 import {loadStripe} from "@stripe/stripe-js";
 
 
-// Todo move sendemail and savetotable
+
 
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -166,7 +166,7 @@ class Review extends React.Component {
     onClick = async (event) => {
 
 
-      /*  var abbreviatedState = {
+        var abbreviatedState = {
             name: this.state.fullName,
             email: this.state.email,
             pies: this.state.pies,
@@ -183,7 +183,6 @@ class Review extends React.Component {
             zip: this.state.zip,
             orderTime: new Date().toLocaleString()
         }
-*/
 
 
         // Get Stripe.js instance
@@ -210,7 +209,7 @@ class Review extends React.Component {
         }
 
 
-     /*   fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
+        fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -240,7 +239,7 @@ class Review extends React.Component {
             .catch((error) => {
                 console.error('Error:', error);
             });
-*/
+
 
         //this.props.methodToPassToChild('confirmed');
     }
