@@ -70,7 +70,7 @@ class App extends React.Component {
         console.log("querystring:" + queryString)
         // const urlParams = new URLSearchParams(queryString);
         // console.log("urlParams:" + JSON.stringify(urlParams));
-        var test = queryString.info.pies
+        var test = queryString.info.pies || 0
         console.log("test:" + test);
 
         let element;
