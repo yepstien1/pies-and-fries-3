@@ -87,8 +87,8 @@ class App extends React.Component {
 
 
             <div>
-                <h1>test</h1>
-                element
+                <h1>{test}</h1>
+                {element}
 
             </div>
 
