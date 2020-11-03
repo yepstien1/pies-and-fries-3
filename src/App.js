@@ -67,7 +67,7 @@ class App extends React.Component {
     render() {
         //todo for testing purps
         const queryString = JSON.stringify(window.location.search)
-        console.log("querystring:" + JSON.stringify(queryString))
+        console.log("querystring:" + queryString)
         const urlParams = new URLSearchParams(queryString);
         console.log("urlParams:" + JSON.stringify(urlParams));
         var test = urlParams.get('pies')
