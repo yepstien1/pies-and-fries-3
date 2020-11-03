@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
                     product_data: {
                         name: 'Food',
                     },
-                    unit_amount: info.total * 1000,
+                    unit_amount: info.total * 100,
                 },
                     quantity: 1,
                 },

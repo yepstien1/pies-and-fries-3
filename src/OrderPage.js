@@ -38,7 +38,7 @@ class OrderPage extends React.Component {
 
                     </tr>
                     <tr>
-                        <textarea value={this.getTotalString()}/> <br/>
+                        <textarea value={this.getTotalString}/> <br/>
 
                     </tr>
 
