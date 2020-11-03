@@ -19,13 +19,13 @@ exports.handler = async (event, context) => {
                     },
                     unit_amount: info.total * 100,
                 },
-                    quantity: 1,
-                },
-            ],
-            mode: 'payment',
-            success_url: 'https://pies-and-fries.netlify.app?Confirmed=true',
-            cancel_url: 'https://example.com/cancel',
-        });
+                quantity: 1,
+            },
+        ],
+        mode: 'payment',
+        success_url: 'https://pies-and-fries.netlify.app?info={info}',
+        cancel_url: 'https://example.com/cancel',
+    });
 console.log("hi from func")
    return {
        statusCode: 200,
