@@ -9,7 +9,7 @@ class OrderPage extends React.Component {
     state = {
         pies: 0,
         fries: 0,
-        totalPricePies: 0,
+        totalPooricePies: 0,
         totalPriceFries: 0,
         ordered: false,
         warning: ''
