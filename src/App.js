@@ -67,11 +67,11 @@ class App extends React.Component {
     render() {
         //todo for testing purps
         const queryString = JSON.stringify(window.location.search)
-        //console.log("querystring:" + queryString)
+        console.log("querystring:" + queryString)
         // const urlParams = new URLSearchParams(queryString);
         // console.log("urlParams:" + JSON.stringify(urlParams));
-        var test = queryString.pies
-        console.log(test);
+        var test = queryString.info.pies
+        console.log("test:" + test);
 
         let element;
         if (!this.state.clicked)
