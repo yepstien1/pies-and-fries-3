@@ -38,7 +38,7 @@ class OrderPage extends React.Component {
 
                     </tr>
                     <tr>
-                        <textarea value={this.getTotalString}/> <br/>
+                        <textarea value={this.getTotalString()}/> <br/>
 
                     </tr>
 
@@ -76,7 +76,7 @@ class OrderPage extends React.Component {
     getTotalString = () => {
         //let total = "Total is $ ";
         var numberTotal = 0;
-        numberTotal = +this.state.totalPriceFries + +this.state.totalPricePies;
+        numberTotal = this.state.totalPriceFries + this.state.totalPricePies;
         console.log(numberTotal)
         var total = `Total is ${this.state.pies} pies and ${this.state.fries} fries  = $ ${numberTotal}`;
 
