@@ -3,7 +3,7 @@
 //const axios = require('axios')
 const express = require('express');
 exports.handler = async (event, context) => {
-    const app = express();
+
 
 
     const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SK);
@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
             },
         ],
         mode: 'payment',
-        success_url: 'https://pies-and-fries.netlify.app?info={info}',
+        success_url: "https://pies-and-fries.netlify.app?info={info}",
         cancel_url: 'https://example.com/cancel',
     });
 console.log("hi from func")
