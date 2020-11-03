@@ -66,7 +66,7 @@ class App extends React.Component {
 
     render() {
         //todo for testing purps
-        const queryString = window.location.search
+        const queryString = JSON.stringify(window.location.search)
         console.log("querystring:" + JSON.stringify(queryString))
         const urlParams = new URLSearchParams(queryString);
         console.log("urlParams:" + JSON.stringify(urlParams));
