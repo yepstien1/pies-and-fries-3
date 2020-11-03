@@ -65,6 +65,11 @@ class App extends React.Component {
 
 
     render() {
+        //todo for testing purps
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString);
+        var test = urlParams.get('pies')
+
         let element;
         if (!this.state.clicked)
             element = <Welcome methodToPassToChild={this.fetchFromWelcome}/>
@@ -80,8 +85,12 @@ class App extends React.Component {
 
         return (
 
-            element
 
+            <div>
+                <h1>test</h1>
+                element
+
+            </div>
 
         )
     }
