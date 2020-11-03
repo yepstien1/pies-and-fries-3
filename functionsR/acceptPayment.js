@@ -1,7 +1,7 @@
 // This example sets up an endpoint using the Express framework.
 // Watch this video to get started: https://youtu.be/rPR2aJ6XnAc.
 //const axios = require('axios')
-const express = require('express');
+
 exports.handler = async (event, context) => {
 
 
@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
             },
         ],
         mode: 'payment',
-        success_url: "https://pies-and-fries.netlify.app?info={info}",
+        success_url: `https://pies-and-fries.netlify.app?info=${info}`,
         cancel_url: 'https://example.com/cancel',
     });
 console.log("hi from func")
