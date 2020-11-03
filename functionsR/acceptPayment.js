@@ -7,18 +7,18 @@ exports.handler = async (event, context) => {
 
 
     const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SK);
-
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: [
-                {
-                    price_data: {
-                        currency: 'usd',
-                        product_data: {
-                            name: 'T-shirt',
-                        },
-                        unit_amount: 2000,
+    var info = JSON.parse(event.body);
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+            {
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: 'Food',
                     },
+                    unit_amount: info.total,
+                },
                     quantity: 1,
                 },
             ],

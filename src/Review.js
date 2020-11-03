@@ -174,9 +174,6 @@ class Review extends React.Component {
             fries: this.state.fries,
             totalFries: this.state.totalPriceFries,
             total: +this.state.totalPriceFries + +this.state.totalPricePies,
-            paymentInfo: this.state.paymentInfo,
-
-
             phone: this.state.phoneNumber,
             address: this.state.address,
             city: this.state.city,
@@ -226,7 +223,8 @@ class Review extends React.Component {
         const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
             method: 'POST', headers: {
                 'Content-Type': 'application/json',
-            }
+            },
+            body: JSON.stringify(abbreviatedState)
         });
         const session = await response.json();
         // When the customer clicks on the button, redirect them to Checkout.
