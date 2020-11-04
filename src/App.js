@@ -24,6 +24,8 @@ class App extends React.Component {
         confirmed: false
     }
 
+    conf = false;
+
 
     fetchFromWelcome = (childData) => {
         this.setState({clicked: childData})
@@ -71,8 +73,8 @@ class App extends React.Component {
         const data = JSON.parse(urlParams.get('info'));
         if (data) {
             this.setState({confirmed: true})
-        }
 
+        }
 
     }
 
@@ -90,7 +92,7 @@ this.getUrl();
         else if (!this.state.paymentSubmitted)
             element = <Review  {...this.state} methodToPassToChild={this.fetchFromReview}/>
 
-        else
+        else if (this.state.confirmed)
             element = <Confirmation/>
 
         return (
