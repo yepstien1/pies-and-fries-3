@@ -72,10 +72,10 @@ class App extends React.Component {
         const urlParams = new URLSearchParams(queryString);
         const data = JSON.parse(urlParams.get('info'));
         if (data) {
-            this.setState({confirmed: true})
+            this.conf = true;
+
 
         }
-
     }
 
 
@@ -92,7 +92,7 @@ this.getUrl();
         else if (!this.state.paymentSubmitted)
             element = <Review  {...this.state} methodToPassToChild={this.fetchFromReview}/>
 
-        else if (this.state.confirmed)
+        else if (this.conf)
             element = <Confirmation/>
 
         return (
