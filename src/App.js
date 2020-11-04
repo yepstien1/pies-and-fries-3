@@ -64,10 +64,13 @@ class App extends React.Component {
     }
 
     getUrl = () => {
-        console.log("wls:" + JSON.stringify(window.location.search))
-        console.log("info:" + JSON.stringify(window.location.search.info))
-        console.log("info.name:" + window.location.search.info.name)
-        console.log("search.name:" + window.location.search.name)
+        const queryString = window.location.search;
+        console.log("wls:" + JSON.stringify(queryString))
+        const urlParams = new URLSearchParams(queryString);
+        console.log("urlparamsget:" + urlParams.get);
+        console.log("urlparamsget(info):" + urlParams.get('info'));
+
+
     }
 
 
