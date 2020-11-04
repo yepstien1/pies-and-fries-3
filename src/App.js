@@ -65,6 +65,9 @@ class App extends React.Component {
 
     getUrl = () => {
         console.log("wls:" + JSON.stringify(window.location.search))
+        console.log("info:" + JSON.stringify(window.location.search.info))
+        console.log("info.name:" + window.location.search.info.name)
+        console.log("search.name:" + window.location.search.name)
     }
 
 
