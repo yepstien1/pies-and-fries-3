@@ -67,8 +67,8 @@ class App extends React.Component {
         const queryString = window.location.search;
         console.log("wls:" + JSON.stringify(queryString))
         const urlParams = new URLSearchParams(queryString);
-
-        console.log("urlparamsget(info):" + urlParams.get('info').name);
+        const data = JSON.parse(urlParams.get('info'))
+        console.log(data.name);
 
 
     }
