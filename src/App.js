@@ -63,6 +63,10 @@ class App extends React.Component {
 
     }
 
+    getUrl = () => {
+        console.log("wls:" + JSON.stringify(window.location.search))
+    }
+
 
     render() {
 
@@ -84,7 +88,6 @@ class App extends React.Component {
 
 
             <div>
-
             {element}
 
             </div>
