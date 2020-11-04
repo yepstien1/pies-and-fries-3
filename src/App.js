@@ -69,8 +69,8 @@ class App extends React.Component {
         console.log("wls:" + JSON.stringify(queryString));
         const urlParams = new URLSearchParams(queryString);
         const data = JSON.parse(urlParams.get('info'));
-        if (typeof data !== 'undefined') {
-            console.log(data.name);
+        if (data.name) {
+            this.setState({confirmed: true})
         }
 
 
