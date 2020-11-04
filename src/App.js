@@ -70,7 +70,7 @@ class App extends React.Component {
 
     render() {
 
-
+this.getUrl();
         let element;
         if (!this.state.clicked)
             element = <Welcome methodToPassToChild={this.fetchFromWelcome}/>
