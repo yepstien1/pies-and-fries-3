@@ -24,7 +24,7 @@ exports.handler = async (event, context) => {
         ],
         mode: 'payment',
         success_url: `https://pies-and-fries.netlify.app?info=${event.body}`,
-        cancel_url: 'https://example.com/cancel',
+        cancel_url: 'https://pies-and-fries.netlify.app',
     });
 console.log("hi from func")
    return {
