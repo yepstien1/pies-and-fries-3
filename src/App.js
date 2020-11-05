@@ -81,9 +81,11 @@ class App extends React.Component {
 
     render() {
 
-this.getUrl();
+        this.getUrl();
         let element;
-        if (!this.state.clicked)
+        if (this.conf)
+            element = <Confirmation/>
+        else if (!this.state.clicked)
             element = <Welcome methodToPassToChild={this.fetchFromWelcome}/>
         else if (!this.state.ordered)
             element = <OrderPage methodToPassToChild={this.fetchFromOrder}/>
@@ -92,8 +94,6 @@ this.getUrl();
         else if (!this.state.paymentSubmitted)
             element = <Review  {...this.state} methodToPassToChild={this.fetchFromReview}/>
 
-        else if (this.conf)
-            element = <Confirmation/>
 
         return (
 
