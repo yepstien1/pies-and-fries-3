@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
 var order;
     const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SK);
     var info = JSON.parse(event.body);
-
+    var encodedInfo = window.btoa(event.body)
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items: [
@@ -16,7 +16,7 @@ var order;
                 price_data: {
                     currency: 'usd',
                     product_data: {
-                        name: `Pies: ${info.pies} \n Fries: ${info.fries} `,
+                        name: `Pies: ${info.pies} Fries: ${info.fries} `,
 
                     },
                     unit_amount: info.total * 100,
@@ -25,7 +25,7 @@ var order;
             },
         ],
         mode: 'payment',
-        success_url: `https://pies-and-fries.netlify.app?info=${event.body}`,
+        success_url: `https://pies-and-fries.netlify.app?info=${encodedInfo}`,
         cancel_url: 'https://pies-and-fries.netlify.app',
     });
 console.log("hi from func")

@@ -120,10 +120,7 @@ class OrderPage extends React.Component {
 
     decrementFries = () => {
         var oldState = this.state.fries;
-
         if (oldState > 0) {
-
-
             oldState--;
             this.setState({fries: oldState}, this.ChangeTotalFries)
 
@@ -137,14 +134,8 @@ class OrderPage extends React.Component {
 
     ChangeTotalPies = () => {
         console.log(" changeTotalPie func" + new Date().toLocaleString())
-        var piePrice = 18;
-        console.log("pies in change" + this.state.pies)
-
+        const piePrice = 18;
         var total = piePrice * this.state.pies
-
-
-        console.log("total pie price" + total)
-
         this.setState({totalPricePies: total})
 
 
@@ -152,12 +143,9 @@ class OrderPage extends React.Component {
 
 
     ChangeTotalFries = () => {
-
-        let friePrice = 3;
+        const friePrice = 3;
         let total = friePrice * this.state.fries;
-        console.log("total pie price" + total)
         this.setState({totalPriceFries: total})
-
     }
 
 }
