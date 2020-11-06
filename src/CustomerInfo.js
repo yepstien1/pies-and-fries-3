@@ -196,5 +196,5 @@ e.preventDefault();
 
 }
 
-//Customer_Info.contextType=CustomerContext;
+
 export default CustomerInfo

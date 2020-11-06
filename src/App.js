@@ -58,18 +58,15 @@ class App extends React.Component {
             this.setState({infoSubmitted: false})
         else if (childData === 'paymentSubmitted')
             this.setState({paymentSubmitted: false})
-        else if (childData === 'confirmed') {
-            this.setState({confirmed: true})
         }
 
-
-    }
 
     getUrl = () => {
 
         const queryString = window.location.search;
-        console.log("wls:" + JSON.stringify(queryString));
-        const urlParams = new URLSearchParams(queryString);
+        const decodedQS = window.atob(queryString)
+        console.log("wls:" + JSON.stringify(decodedQS));
+        const urlParams = new URLSearchParams(decodedQS);
         const data = JSON.parse(urlParams.get('info'));
         if (data) {
             this.conf = true;
