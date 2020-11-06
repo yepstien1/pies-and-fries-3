@@ -64,9 +64,7 @@ class App extends React.Component {
     getUrl = () => {
 
         const queryString = window.location.search;
-        const decodedQS = window.atob(queryString)
-        console.log("wls:" + JSON.stringify(decodedQS));
-        const urlParams = new URLSearchParams(decodedQS);
+        const urlParams = new URLSearchParams(queryString);
         const data = JSON.parse(urlParams.get('info'));
         if (data) {
             this.conf = true;
