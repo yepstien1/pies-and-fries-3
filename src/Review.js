@@ -206,7 +206,7 @@ class Review extends React.Component {
         // When the customer clicks on the button, redirect them to Checkout.
         const result = await stripe.redirectToCheckout({
             sessionId: session.sessionId
-        }).then(result => {
+        }).then(() => {
             console.log("results:" + JSON.stringify(result))
         }, error => {
             console.error(error)
