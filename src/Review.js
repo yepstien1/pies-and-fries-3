@@ -209,6 +209,9 @@ class Review extends React.Component {
             sessionId: session.sessionId
 
         });
+        result.then(() => {
+            console.log(JSON.stringify(result))
+        })
 
 
         if (result.error) {

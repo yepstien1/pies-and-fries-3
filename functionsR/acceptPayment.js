@@ -41,7 +41,8 @@ exports.handler = async (event, context) => {
         statusCode: 200,
         headers,
         body: JSON.stringify({
-            sessionId: session.id
+            sessionId: session.id,
+            orderInfo: info
         }),
 
     }
