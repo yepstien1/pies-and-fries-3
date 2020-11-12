@@ -202,9 +202,7 @@ class Review extends React.Component {
             },
             body: JSON.stringify(abbreviatedState)
         });
-        const session = await response.json().then((session) => {
-            console.log(JSON.stringify(session))
-        })
+        const session = await response.json();
 
         // When the customer clicks on the button, redirect them to Checkout.
         const result = await stripe.redirectToCheckout({
