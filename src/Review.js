@@ -1,6 +1,6 @@
 import React from "react";
 import {loadStripe} from "@stripe/stripe-js";
-//import {error} from "winston";
+import {error} from "winston";
 
 
 
@@ -202,24 +202,24 @@ class Review extends React.Component {
             },
             body: JSON.stringify(abbreviatedState)
         });
-        const session = await response.json();
+        const session = await response.json().then((session) => {
+            console.log(JSON.stringify(session))
+        })
+
         // When the customer clicks on the button, redirect them to Checkout.
         const result = await stripe.redirectToCheckout({
             sessionId: session.sessionId
-        }).then(() => {
-            console.log("results:" + JSON.stringify(result))
 
         });
 
 
-        /*if (result.error) {
+        if (result.error) {
             console.log(result.error.message)
             // If `redirectToCheckout` fails due to a browser or network
             // error, display the localized error message to your customer
             // using `result.error.message`.
         }
 
-*/
 
         //this.props.methodToPassToChild('confirmed');
     }
