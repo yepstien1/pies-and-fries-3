@@ -1,5 +1,6 @@
 import React from "react";
 import {loadStripe} from "@stripe/stripe-js";
+import {error} from "winston";
 
 
 
@@ -194,6 +195,10 @@ class Review extends React.Component {
         const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
             method: 'POST', headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+
             },
             body: JSON.stringify(abbreviatedState)
         });
@@ -201,16 +206,21 @@ class Review extends React.Component {
         // When the customer clicks on the button, redirect them to Checkout.
         const result = await stripe.redirectToCheckout({
             sessionId: session.sessionId
+        }).then(result => {
+            console.log("results:" + JSON.stringify(result))
+        }, error => {
+            console.error(error)
         });
 
 
-        if (result.error) {
+        /*if (result.error) {
             console.log(result.error.message)
             // If `redirectToCheckout` fails due to a browser or network
             // error, display the localized error message to your customer
             // using `result.error.message`.
         }
 
+*/
 
         //this.props.methodToPassToChild('confirmed');
     }
