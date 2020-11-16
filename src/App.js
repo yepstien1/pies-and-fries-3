@@ -6,7 +6,7 @@ import CustomerInfo from './CustomerInfo.js'
 import Review from './Review'
 import Confirmation from './Confirmation'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Cookies from 'universal-cookie';
 
 import './App.css';
 
@@ -58,25 +58,24 @@ class App extends React.Component {
             this.setState({infoSubmitted: false})
         else if (childData === 'paymentSubmitted')
             this.setState({paymentSubmitted: false})
-        }
+    }
 
 
-    getUrl = () => {
-
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const data = JSON.parse(urlParams.get('info'));
-        if (data) {
+    getCookie = () => {
+        var cookie = new Cookies();
+        var info = cookie.get('data');
+        if (info) {
             this.conf = true;
-
-
+            console.log(JSON.stringify(info));
         }
+
+
     }
 
 
     render() {
 
-        this.getUrl();
+        this.getCookie();
         let element;
         if (this.conf)
             element = <Confirmation/>
@@ -94,7 +93,7 @@ class App extends React.Component {
 
 
             <div>
-            {element}
+                {element}
 
             </div>
 

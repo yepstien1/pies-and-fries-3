@@ -1,13 +1,12 @@
 import React from "react";
-
+import Cookies from 'universal-cookie';
 class Confirmation extends React.Component {
 
     componentDidMount() {
+        var cookie = new Cookies();
+        var info = cookie.get('data');
 
-        const queryString = window.location.search;
-        console.log("wls:" + JSON.stringify(queryString));
-        const urlParams = new URLSearchParams(queryString);
-        const data = JSON.parse(urlParams.get('info'));
+        const data = info
 
         fetch("https://pies-and-fries.netlify.app/.netlify/functions/airTable", {
             method: 'POST',
@@ -40,7 +39,7 @@ class Confirmation extends React.Component {
                 console.error('Error:', error);
             });
 
-
+        cookie.remove('data');
     }
 
     render() {

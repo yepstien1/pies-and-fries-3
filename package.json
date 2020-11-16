@@ -30,6 +30,7 @@
     "react-scripts": "^3.4.3",
     "stripe": "^8.89.0",
     "typescript": "^3.9.5",
+    "universal-cookie": "^4.0.4",
     "winston": "^3.2.1"
   },
   "scripts": {

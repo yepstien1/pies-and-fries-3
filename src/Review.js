@@ -1,5 +1,6 @@
 import React from "react";
 import {loadStripe} from "@stripe/stripe-js";
+import Cookies from 'universal-cookie'
 //import {error} from "winston";
 
 
@@ -183,9 +184,10 @@ class Review extends React.Component {
         }
 
 
-
-
-
+// Save data to cookie for when user comes back after stripe
+        const cookies = new Cookies();
+        cookies.set('data', abbreviatedState, {path: '/'});
+        console.log(JSON.stringify(cookies.get('data')))
 
 
         // Get Stripe.js instance
