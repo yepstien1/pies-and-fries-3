@@ -63,6 +63,16 @@ class App extends React.Component {
 
     getCookie = () => {
         var cookie = new Cookies();
+        const queryString = window.location.search;
+
+
+        const urlParams = new URLSearchParams(queryString);
+        const canceled = JSON.parse(urlParams.get('info'));
+        // delete cookie if user canceled
+        if (canceled) {
+            cookie.remove('data')
+        }
+
         var info = cookie.get('data');
         if (info) {
             this.conf = true;
