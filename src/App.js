@@ -67,7 +67,7 @@ class App extends React.Component {
 
 
         const urlParams = new URLSearchParams(queryString);
-        const canceled = urlParams.get('info');
+        const canceled = urlParams.get();
         console.log("canceled" + canceled)
         // delete cookie if user canceled
         if (canceled === 'canceled') {
