@@ -63,9 +63,8 @@ class App extends React.Component {
 
     getCookie = () => {
         var cookie = new Cookies();
+        // get urlparams to check for return from user cancelled
         const queryString = window.location.search;
-
-
         const urlParams = new URLSearchParams(queryString);
         const canceled = urlParams.get('info');
         console.log("canceled" + canceled)
@@ -122,6 +121,7 @@ class Welcome extends React.Component {
         return (
 
             <div className='block'>
+                <p className="admin">admin click here</p>
                 <h1><span className="text">Welcome to Pies and Fries</span></h1>
 
                 <h4><span className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</span>
