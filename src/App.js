@@ -129,7 +129,7 @@ class Welcome extends React.Component {
                         className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</span>
                     </h4>
                 </div>
-                <a href="http://localhost:3001/" className="admin"> to>admin click here</a>
+
 
                 <button type="submit" onClick={this.submit}>Click here to Eat</button>
 
