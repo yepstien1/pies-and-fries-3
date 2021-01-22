@@ -192,7 +192,7 @@ class Review extends React.Component {
 
         // Get Stripe.js instance
         const stripe = await stripePromise;
-
+//
         // Call your backend to create the Checkout Session
         const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
             method: 'POST', headers: {

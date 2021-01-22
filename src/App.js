@@ -1,4 +1,5 @@
 import React from 'react';
+//import Link from 'react-router'
 
 import OrderPage from './OrderPage.js'
 import CustomerInfo from './CustomerInfo.js'
@@ -21,7 +22,8 @@ class App extends React.Component {
         ordered: false,
         infoSubmitted: false,
         paymentSubmitted: false,
-        confirmed: false
+        confirmed: false,
+        admin: false
     }
 
     conf = false;
@@ -68,7 +70,6 @@ class App extends React.Component {
         const urlParams = new URLSearchParams(queryString);
         const canceled = urlParams.get('info');
         console.log("canceled" + canceled)
-        // delete cookie if user canceled
         if (canceled === 'canceled') {
             cookie.remove('data')
 
@@ -121,11 +122,15 @@ class Welcome extends React.Component {
         return (
 
             <div className='block'>
-                <p className="admin">admin click here</p>
-                <h1><span className="text">Welcome to Pies and Fries</span></h1>
+                <div className="text-welcome">
+                    <h1><span className="text">Welcome to Pies and Fries</span></h1>
 
-                <h4><span className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</span>
-                </h4>
+                    <h4><span
+                        className="text">This the EASIEST and FASTEST way to order PIZZA and FRIES for Delivery</span>
+                    </h4>
+                </div>
+                <a href="http://localhost:3001/" className="admin"> to>admin click here</a>
+
                 <button type="submit" onClick={this.submit}>Click here to Eat</button>
 
             </div>

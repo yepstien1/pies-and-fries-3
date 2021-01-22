@@ -2,4 +2,4 @@
  command= "npm run build"
  publish ="build"
  # remember to change to functionsR for prod
- functions = "./functionsR"
+ functions = "./functions-build"
