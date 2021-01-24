@@ -5,12 +5,7 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-size: 100% 100%;
 
-    background-image: url('pictures/success screen yellowBG.png');
-
-    background-repeat: no-repeat;
-    background-size: cover;
     /*background-position: center; */
 
 }
@@ -21,11 +16,6 @@ code {
     monospace;
 }
 
-.block {
-    color: darkred;
-
-
-}
 
 .admin {
     text-align: right;
