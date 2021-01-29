@@ -37,10 +37,12 @@
   }
 }
 */
-.block {
+.container {
   display: flex;
   height: 100%;
   color: darkred;
+  flex-direction: column;
+  flex-wrap: wrap;
 
 
 }

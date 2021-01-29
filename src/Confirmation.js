@@ -46,7 +46,7 @@ class Confirmation extends React.Component {
 
         return (
 
-            <h1 className="block">Your Pizza is on its way!</h1>
+            <h1 className="container">Your Pizza is on its way!</h1>
             
            
 

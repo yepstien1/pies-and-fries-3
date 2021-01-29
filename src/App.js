@@ -121,7 +121,7 @@ class Welcome extends React.Component {
     render() {
         return (
 
-            <div className='block'>
+            <div className='container'>
                 <div className="screen-top">
                     <h1><span className="text">Welcome to Pies and Fries</span></h1>
 

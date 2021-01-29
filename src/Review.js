@@ -20,7 +20,7 @@ class Review extends React.Component {
 
         return (
 
-            <div className="block">
+            <div className="container">
                 <div className="screen-top-review-page">
                     <table>
                         <h1>Does everything look right?</h1>

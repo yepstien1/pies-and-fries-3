@@ -8,7 +8,7 @@ class CustomerInfo extends React.Component {
 
         return (
 
-            <div className="block">
+            <div className="container">
                 <form onSubmit={this.submit}>
                     <div className="screen-top">
                         <h1>Please enter your information below</h1>

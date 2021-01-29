@@ -20,17 +20,17 @@ class OrderPage extends React.Component {
 
     render() {
         return (
-            <div className="block">
-<div className="screen-top-order-page">
+            <div className="container">
+                <div className="screen-top-order-page">
 
 
-    <h1>What would you like ?</h1>
+                    <h1>What would you like ?</h1>
 
-    <table>
-        <tr>
-            <td align='justified'>Pies ($18) How many would you like</td>
-            <button onClick={this.incrementPies}><FaPlus/></button>
-            <button onClick={this.decrementPies}><FaMinus/></button>
+                    <table>
+                        <tr>
+                            <td align='justified'>Pies ($18) How many would you like</td>
+                            <button onClick={this.incrementPies}><FaPlus/></button>
+                            <button onClick={this.decrementPies}><FaMinus/></button>
 
         </tr>
         <tr>
