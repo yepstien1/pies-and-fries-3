@@ -21,31 +21,38 @@ class OrderPage extends React.Component {
     render() {
         return (
             <div className="block">
-                <h1>What would you like ?</h1>
+<div className="screen-top-order-page">
 
 
-                <table>
-                    <tr>
-                        <td align='justified'>Pies ($18) How many would you like</td>
-                        <button onClick={this.incrementPies}><FaPlus/></button>
-                        <button onClick={this.decrementPies}><FaMinus/></button>
+    <h1>What would you like ?</h1>
 
-                    </tr>
-                    <tr>
-                        <td align='justified'> Fries ($3) How many would you like</td>
-                        <button onClick={this.incrementFries}><FaPlus/></button>
-                        <button onClick={this.decrementFries}><FaMinus/></button>
+    <table>
+        <tr>
+            <td align='justified'>Pies ($18) How many would you like</td>
+            <button onClick={this.incrementPies}><FaPlus/></button>
+            <button onClick={this.decrementPies}><FaMinus/></button>
 
-                    </tr>
-                    <tr>
-                        <textarea value={this.getTotalString()}/> <br/>
+        </tr>
+        <tr>
+            <td align='justified'> Fries ($3) How many would you like</td>
+            <button onClick={this.incrementFries}><FaPlus/></button>
+            <button onClick={this.decrementFries}><FaMinus/></button>
 
-                    </tr>
+        </tr>
+        <tr>
+            <textarea value={this.getTotalString()}/> <br/>
 
-                </table>
+        </tr>
 
-                <Button variant="primary" onClick={this.onClick}>submit</Button>
-                <h4>{this.state.warning}</h4>
+    </table>
+
+</div>
+
+                <div className="screen-bottom-order-page">
+                    <Button variant="primary" onClick={this.onClick}>submit</Button>
+                    <h4>{this.state.warning}</h4>
+
+                </div>
 
 
             </div>

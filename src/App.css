@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+*/
+.block {
+  height: 100%;
+  color: darkred;
+
+
+}
+
+.screen-top, .screen-top-order-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-image: url('pictures/success screen yellowBG.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.screen-top {
+  bottom: 40%;
+}
+
+.screen-top-order-page {
+  bottom: 55%;
+}
+
+.screen-bottom {
+  top: 60%;
+}
+
+.screen-bottom, .screen-bottom-order-page {
+  text-align: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.screen-bottom-order-page {
+  top: 45%;
+}
+
+
+table {
+  margin: 0 auto;
+}
+
+
+
