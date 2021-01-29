@@ -21,7 +21,7 @@ class OrderPage extends React.Component {
     render() {
         return (
             <div className="block">
-<div className="text-top">
+<div className="screen-top-order-page">
 
 
     <h1>What would you like ?</h1>
@@ -48,7 +48,7 @@ class OrderPage extends React.Component {
 
 </div>
 
-                <div className="text-bottom">
+                <div className="screen-bottom-order-page">
                     <Button variant="primary" onClick={this.onClick}>submit</Button>
                     <h4>{this.state.warning}</h4>
 

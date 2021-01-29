@@ -122,7 +122,7 @@ class Welcome extends React.Component {
         return (
 
             <div className='block'>
-                <div className="text-top">
+                <div className="screen-top">
                     <h1><span className="text">Welcome to Pies and Fries</span></h1>
 
                     <h4><span
@@ -130,7 +130,7 @@ class Welcome extends React.Component {
                     </h4>
                 </div>
 
-                <div class='text-bottom'>
+                <div class='screen-bottom'>
 
                     <button type="submit" onClick={this.submit}>Click here to Eat</button>
                 </div>

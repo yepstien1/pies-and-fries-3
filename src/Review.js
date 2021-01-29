@@ -4,9 +4,6 @@ import Cookies from 'universal-cookie'
 //import {error} from "winston";
 
 
-
-
-
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe('pk_test_51HIfiHBNlDExaBq3QpRDRJ7R1RFLJ3r5TrYDKUk34iq8gY1sXd5Jyh2OSGXpNEgNcsgTC3qBhkXjiKQ9LfYaBxpt00a6dtcUiR');
@@ -24,142 +21,133 @@ class Review extends React.Component {
         return (
 
             <div className="block">
+                <div className="screen-top">
+                    <table>
+                        <h1>Does everything look right?</h1>
+                        <tr>
+                            <td
+                                align="justify">Name
+                            </td>
+                            <td
+                                align="justify">
+                                <input type="text" id="fullname" value={this.state.fullName}/>
 
-                <h1>Does everything look right?</h1>
+                            </td>
+                        </tr>
 
+                        <tr>
+                            <td
+                                align="justify"> Pies :
+                            </td>
+                            <td
+                                align="justify">
+                                <input type="text" id="Pies" value={this.state.pies}/>
 
-                <table>
-                    <tr>
-                        <td
-                            align="justify">Name
-                        </td>
-                        <td
-                                           align="justify">
-                                           <input type="text" id="fullname" value={this.state.fullName}/>
-
-                                       </td>
-                                   </tr>
-
-                                   <tr>
-                                       <td
-                                           align="justify"> Pies :
-                                       </td>
-                                       <td
-                                           align="justify">
-                                           <input type="text" id="Pies" value={this.state.pies}/>
-
-                                       </td>
-                                   </tr>
+                            </td>
+                        </tr>
 
 
-                                   <tr>
-                                       <td
-                                           align="justify">Fries :
-                                       </td>
-                                       <td
-                                           align="justify">
-                                           <input type="text" id="Fries" value={this.state.fries}/>
+                        <tr>
+                            <td
+                                align="justify">Fries :
+                            </td>
+                            <td
+                                align="justify">
+                                <input type="text" id="Fries" value={this.state.fries}/>
 
-                                       </td>
-                                   </tr>
+                            </td>
+                        </tr>
 
-                                   <tr>
-                                       <td
-                                           align="justify">Total : $
-                                       </td>
-                                       <td
-                                           align="justify">
-                                           <input type="text" id="Total"
-                                                  value={this.state.totalPricePies + this.state.totalPriceFries}/>
+                        <tr>
+                            <td
+                                align="justify">Total : $
+                            </td>
+                            <td
+                                align="justify">
+                                <input type="text" id="Total"
+                                       value={this.state.totalPricePies + this.state.totalPriceFries}/>
 
-                                       </td>
-                                   </tr>
+                            </td>
+                        </tr>
 
-                                   <tr>
-                                       <td align="justify">
+                        <tr>
+                            <td align="justify">
 
-                                           Mobile Number
-                                       </td>
-                                       <td align="justify">
-
-
-                                           <input type="text" id="phone number" value={this.state.phoneNumber} required/>
-
-                                       </td>
-
-                                   </tr>
+                                Mobile Number
+                            </td>
+                            <td align="justify">
 
 
-                                   <tr>
-                                       <td align="justify">
-                                           Email address
+                                <input type="text" id="phone number" value={this.state.phoneNumber} required/>
 
-                                       </td>
-                                       <td align="justify">
+                            </td>
 
-                                           <input type="text" id="email" value={this.state.email}/>
+                        </tr>
 
 
-                                       </td>
+                        <tr>
+                            <td align="justify">
+                                Email address
 
-                                   </tr>
+                            </td>
+                            <td align="justify">
 
-                                   <tr>
-                                       <td align="justify">
-                                           Address
+                                <input type="text" id="email" value={this.state.email}/>
 
-                                       </td>
-                                       <td align="justify">
+                            </td>
 
-                                           <input type="text" id="address" value={this.state.address}/>
+                        </tr>
 
+                        <tr>
+                            <td align="justify">
+                                Address
 
-                                       </td>
+                            </td>
+                            <td align="justify">
 
-                                   </tr>
+                                <input type="text" id="address" value={this.state.address}/>
 
-                                   <tr>
-                                       <td align="justify">
-                                           City
+                            </td>
 
-                                       </td>
-                                       <td align="justify">
+                        </tr>
 
+                        <tr>
+                            <td align="justify">
+                                City
 
-                                           <input type="text" id="Citi" value={this.state.city}/>
-
-                                       </td>
-
-                                   </tr>
-
-                                   <tr>
-                                       <td align="justify">
-                                           Zip
-
-                                       </td>
-                                       <td align="justify">
+                            </td>
+                            <td align="justify">
 
 
-                                           <input type="text" id="Zip" value={this.state.zip}/>
+                                <input type="text" id="Citi" value={this.state.city}/>
 
-                                       </td>
+                            </td>
 
-                                   </tr>
+                        </tr>
+
+                        <tr>
+                            <td align="justify">
+                                Zip
+
+                            </td>
+                            <td align="justify">
+
+                                <input type="text" id="Zip" value={this.state.zip}/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                </div>
 
 
-                               </table>
+                <div className="screen-bottom">
+                    <button type="button" role="link" onClick={this.onClick}>submit and pay</button>
+                    <button onClick={this.returnToOrderPage}>edit your order</button>
+                    <button onClick={this.returnToCustomerInfo}>Edit your Address</button>
+                    <button onClick={this.returnToPaymentInfo}> Edit Payment Info</button>
+                </div>
 
-
-                               <br/>
-
-
-                <button type="button" role="link" onClick={this.onClick}>submit and pay</button>
-                <button onClick={this.returnToOrderPage}>edit your order</button>
-
-                <button onClick={this.returnToCustomerInfo}>Edit your Address</button>
-                <button onClick={this.returnToPaymentInfo}> Edit Payment Info</button>
             </div>
-
 
         );
     }

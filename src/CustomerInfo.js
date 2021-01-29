@@ -1,197 +1,183 @@
-
 import React from "react"
 
 
+class CustomerInfo extends React.Component {
 
 
-class CustomerInfo extends React.Component
-{
-  
-   
+    render() {
 
-   
+        return (
 
+            <div className="block">
+                <form onSubmit={this.submit}>
+                    <div className="screen-top">
+                        <h1>Please enter your information below</h1>
+                        <table>
+                            <tr>
+                                <td align="justify">
+                                    First Name
 
-   
+                                </td>
+                                <td align="justify">
 
+                                    <input type="text" id="firstName" onChange={this.handleFirstName} required/>
 
-    render(){
+                                </td>
 
-        return(
-            
-           
-                <form onSubmit={this.submit} className="block">
-                 <h1>Please enter your information below</h1>
-                <table>
-<tr>
-<td align="justify">
-                        First Name
-                        
-                    </td>
-                    <td align="justify">
-
-                    <input type="text" id="firstName" onChange={this.handleFirstName } required/>
-
-                    </td>
-
-</tr>
-                
-                                   
-                    <tr>
-<td align="justify">
-Last name      
-                        
-                    </td>
-                    <td align="justify">
-
-                    <input type="text" id="lastName"  onChange={this.handleLastName} required />
-
-                    </td>
+                            </tr>
 
 
+                            <tr>
+                                <td align="justify">
+                                    Last name
 
-</tr>
+                                </td>
+                                <td align="justify">
+
+                                    <input type="text" id="lastName" onChange={this.handleLastName} required/>
+
+                                </td>
 
 
+                            </tr>
 
 
-                    
+                            <tr>
+                                <td align="justify">
 
-                    <tr>
-<td align="justify">
-                        
-Mobile Number 
-                    </td>
-                    <td align="justify">
+                                    Mobile Number
+                                </td>
+                                <td align="justify">
 
-                    
-                    <input type="text" id="phone number" onChange={this.handleNumber} required/>
 
-                    </td>
+                                    <input type="text" id="phone number" onChange={this.handleNumber} required/>
 
-</tr>
-                    
-                    
+                                </td>
 
-                    <tr>
-<td align="justify">
-Email address      
- 
-                    </td>
-                    <td align="justify">
+                            </tr>
 
-                    <input type="text" id="email" onChange={this.handleEmail} required/>
-                    
 
-                    </td>
+                            <tr>
+                                <td align="justify">
+                                    Email address
 
-</tr>
-    
-<tr>
-<td align="justify">
- Address      
- 
-                    </td>
-                    <td align="justify">
+                                </td>
+                                <td align="justify">
 
-                    <input type="text" id="address" onChange={this.handleAddress} required/>
-                    
+                                    <input type="text" id="email" onChange={this.handleEmail} required/>
 
-                    </td>
 
-</tr>                   
+                                </td>
 
-                    <tr>
-<td align="justify">
-City
- 
-                    </td>
-                    <td align="justify">
+                            </tr>
 
-                    
-                    <input type="text" id="Citi" onChange={this.handleCiti} required/>
+                            <tr>
+                                <td align="justify">
+                                    Address
 
-                    </td>
+                                </td>
+                                <td align="justify">
 
-</tr>
-                    
-                    <tr>
-<td align="justify">
-Zip
- 
-                    </td>
-                    <td align="justify">
+                                    <input type="text" id="address" onChange={this.handleAddress} required/>
 
-                    
-                    <input type="text" id="Zip" onChange={this.handleZip} required/>
 
-                    </td>
+                                </td>
 
-</tr>          
+                            </tr>
 
-                    
+                            <tr>
+                                <td align="justify">
+                                    City
 
-                  
+                                </td>
+                                <td align="justify">
 
-                </table>
 
-                   
+                                    <input type="text" id="Citi" onChange={this.handleCiti} required/>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td align="justify">
+                                    Zip
+
+                                </td>
+                                <td align="justify">
+
+
+                                    <input type="text" id="Zip" onChange={this.handleZip} required/>
+
+                                </td>
+
+                            </tr>
+
+
+                        </table>
+                    </div>
+
 
                     <br/>
+                    <div className="screen-bottom">
+                        <button type="submit">submit</button>
+                    </div>
 
-                    <button type = "submit" >submit</button> 
+
                 </form>
-            
+            </div>
+
+
         );
-    
-        }
-
-        submit =(e)=>{
-e.preventDefault();
-            this.setState({infoSubmitted:true},() =>{ this.sendToParent()
-            });
-        }
-        
-
-        sendToParent =()=>{
-            this.props.methodToPassToChild(this.state);
-
-        }
-    
-
-    handleFirstName =(event) => {
-        this.setState({firstName:event.target.value})
 
     }
 
-    handleLastName =(event) => {
-        this.setState({lastName:event.target.value})
-
-    }
-
-    handleNumber =(event) => {
-        this.setState({phoneNumber:+event.target.value})
-
-    }
-
-    handleEmail =(event) => {
-        this.setState({email:event.target.value})
-
-    }
-
-    handleAddress=(event)=> {
-        this.setState({address:event.target.value})
-    }
-
-    handleCiti=(event)=> {
-        this.setState({city:event.target.value})
+    submit = (e) => {
+        e.preventDefault();
+        this.setState({infoSubmitted: true}, () => {
+            this.sendToParent()
+        });
     }
 
 
-    handleZip=(event)=> {
-        this.setState({zip:+event.target.value})
+    sendToParent = () => {
+        this.props.methodToPassToChild(this.state);
+
     }
 
+
+    handleFirstName = (event) => {
+        this.setState({firstName: event.target.value})
+
+    }
+
+    handleLastName = (event) => {
+        this.setState({lastName: event.target.value})
+
+    }
+
+    handleNumber = (event) => {
+        this.setState({phoneNumber: +event.target.value})
+
+    }
+
+    handleEmail = (event) => {
+        this.setState({email: event.target.value})
+
+    }
+
+    handleAddress = (event) => {
+        this.setState({address: event.target.value})
+    }
+
+    handleCiti = (event) => {
+        this.setState({city: event.target.value})
+    }
+
+
+    handleZip = (event) => {
+        this.setState({zip: +event.target.value})
+    }
 
 
 }
