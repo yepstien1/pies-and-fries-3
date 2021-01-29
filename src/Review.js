@@ -21,7 +21,7 @@ class Review extends React.Component {
         return (
 
             <div className="block">
-                <div className="screen-top">
+                <div className="screen-top-review-page">
                     <table>
                         <h1>Does everything look right?</h1>
                         <tr>
@@ -140,7 +140,7 @@ class Review extends React.Component {
                 </div>
 
 
-                <div className="screen-bottom">
+                <div className="screen-bottom-review-page">
                     <button type="button" role="link" onClick={this.onClick}>submit and pay</button>
                     <button onClick={this.returnToOrderPage}>edit your order</button>
                     <button onClick={this.returnToCustomerInfo}>Edit your Address</button>
