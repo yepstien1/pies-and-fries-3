@@ -43,7 +43,7 @@ exports.handler = async (event, context) => {
         headers,
         body: JSON.stringify({
             sessionId: session.id,
-            orderInfo: info,
+            orderInfo: info
 
         }),
 
