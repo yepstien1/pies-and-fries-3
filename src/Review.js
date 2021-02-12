@@ -184,10 +184,7 @@ class Review extends React.Component {
         }
 
 
-// Save data to cookie for when user comes back after stripe
-        const cookies = new Cookies();
-        cookies.set('data', abbreviatedState, {path: '/'});
-        console.log(JSON.stringify(cookies.get('data')))
+
 
 
         // Get Stripe.js instance
@@ -210,10 +207,14 @@ class Review extends React.Component {
         const result = await stripe.redirectToCheckout({
             sessionId: session.sessionId
 
+        }).then(() => {
+            console.log("hi from result" + JSON.stringify(result))
+
+            // Save data to cookie for when user comes back after stripe
+            const cookies = new Cookies();
+            cookies.set('data', abbreviatedState, {path: '/'});
+            console.log(JSON.stringify(cookies.get('data')))
         });
-        result.then(() => {
-            console.log(JSON.stringify(result))
-        })
 
 
         if (result.error) {

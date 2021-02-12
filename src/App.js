@@ -91,6 +91,8 @@ class App extends React.Component {
         let element;
         if (this.conf)
             element = <Confirmation/>
+
+
         else if (!this.state.clicked)
             element = <Welcome methodToPassToChild={this.fetchFromWelcome}/>
         else if (!this.state.ordered)

@@ -25,8 +25,9 @@ exports.handler = async (event, context) => {
                 quantity: 1,
             },
         ],
+
         mode: 'payment',
-        success_url: `https://pies-and-fries.netlify.app`,
+        success_url: ` https://pies-and-fries.netlify.app/ `,
         cancel_url: 'https://pies-and-fries.netlify.app?info=canceled',
     });
     console.log("hi from func")
@@ -42,7 +43,8 @@ exports.handler = async (event, context) => {
         headers,
         body: JSON.stringify({
             sessionId: session.id,
-            orderInfo: info
+            orderInfo: info,
+
         }),
 
     }
