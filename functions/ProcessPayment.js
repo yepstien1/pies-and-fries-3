@@ -34,8 +34,8 @@ exports.handler = async (event, context) => {
         ],
 
         mode: 'payment',
-        success_url: `https://pies-and-fries.netlify.app/?info =confirmed`,
-        cancel_url: `https://pies-and-fries.netlify.app/?info =canceled`
+        success_url: `https://pies-and-fries.netlify.app?info =confirmed`,
+        cancel_url: `https://pies-and-fries.netlify.app?info =canceled`
     });
     console.log("hi from func")
     const headers = {
