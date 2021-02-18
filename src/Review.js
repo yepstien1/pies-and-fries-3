@@ -180,6 +180,8 @@ class Review extends React.Component {
             zip: this.state.zip,
             orderTime: new Date().toLocaleString()
         }
+        const cookies = new Cookies();
+        cookies.set('data', abbreviatedState, {path: '/'});
 
         // Get Stripe.js instance
         const stripe = await stripePromise;
@@ -203,8 +205,7 @@ class Review extends React.Component {
             console.log("hi from result" + JSON.stringify(result))
 
             // Save data to cookie for when user comes back after stripe
-            const cookies = new Cookies();
-            cookies.set('data', abbreviatedState, {path: '/'});
+
             console.log(JSON.stringify(cookies.get('data')))
         });
 
