@@ -6,7 +6,7 @@
     "@popperjs/core": "^2.4.2",
     "@sendgrid/mail": "^7.2.3",
     "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.9.0",
+    "@stripe/stripe-js": "^1.12.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -20,6 +20,7 @@
     "jquery": "^3.5.1",
     "log4js": "^6.3.0",
     "netlify-lambda": "^1.6.3",
+    "netlify-cli": "^2.69.3",
     "node-fetch": "^2.6.0",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
@@ -28,8 +29,8 @@
     "react-icons": "^3.11.0",
     "react-router": "^5.2.0",
     "react-scripts": "^3.4.3",
-    "stripe": "^8.89.0",
-    "typescript": "^3.9.5",
+    "stripe": "^8.135.0",
+    "typescript": "^3.9.9",
     "universal-cookie": "^4.0.4",
     "winston": "^3.2.1"
   },
@@ -37,8 +38,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "echo\"errpor not test specified\" && exit 1",
-    "start:lambda": "netlify-lambda serve functionsR",
-    "build:lambda": "netlify-lambda build functionsR",
+    "start:lambda": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

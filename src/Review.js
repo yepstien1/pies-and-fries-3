@@ -1,10 +1,8 @@
 import React from "react";
 import {loadStripe} from "@stripe/stripe-js";
 import Cookies from 'universal-cookie'
-//import {error} from "winston";
 
-
-
+/*"https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment"*/
 
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -34,123 +32,123 @@ class Review extends React.Component {
                             align="justify">Name
                         </td>
                         <td
-                                           align="justify">
-                                           <input type="text" id="fullname" value={this.state.fullName}/>
+                            align="justify">
+                            <input type="text" id="fullname" value={this.state.fullName}/>
 
-                                       </td>
-                                   </tr>
+                        </td>
+                    </tr>
 
-                                   <tr>
-                                       <td
-                                           align="justify"> Pies :
-                                       </td>
-                                       <td
-                                           align="justify">
-                                           <input type="text" id="Pies" value={this.state.pies}/>
+                    <tr>
+                        <td
+                            align="justify"> Pies :
+                        </td>
+                        <td
+                            align="justify">
+                            <input type="text" id="Pies" value={this.state.pies}/>
 
-                                       </td>
-                                   </tr>
-
-
-                                   <tr>
-                                       <td
-                                           align="justify">Fries :
-                                       </td>
-                                       <td
-                                           align="justify">
-                                           <input type="text" id="Fries" value={this.state.fries}/>
-
-                                       </td>
-                                   </tr>
-
-                                   <tr>
-                                       <td
-                                           align="justify">Total : $
-                                       </td>
-                                       <td
-                                           align="justify">
-                                           <input type="text" id="Total"
-                                                  value={this.state.totalPricePies + this.state.totalPriceFries}/>
-
-                                       </td>
-                                   </tr>
-
-                                   <tr>
-                                       <td align="justify">
-
-                                           Mobile Number
-                                       </td>
-                                       <td align="justify">
+                        </td>
+                    </tr>
 
 
-                                           <input type="text" id="phone number" value={this.state.phoneNumber} required/>
+                    <tr>
+                        <td
+                            align="justify">Fries :
+                        </td>
+                        <td
+                            align="justify">
+                            <input type="text" id="Fries" value={this.state.fries}/>
 
-                                       </td>
+                        </td>
+                    </tr>
 
-                                   </tr>
+                    <tr>
+                        <td
+                            align="justify">Total : $
+                        </td>
+                        <td
+                            align="justify">
+                            <input type="text" id="Total"
+                                   value={this.state.totalPricePies + this.state.totalPriceFries}/>
 
+                        </td>
+                    </tr>
 
-                                   <tr>
-                                       <td align="justify">
-                                           Email address
+                    <tr>
+                        <td align="justify">
 
-                                       </td>
-                                       <td align="justify">
-
-                                           <input type="text" id="email" value={this.state.email}/>
-
-
-                                       </td>
-
-                                   </tr>
-
-                                   <tr>
-                                       <td align="justify">
-                                           Address
-
-                                       </td>
-                                       <td align="justify">
-
-                                           <input type="text" id="address" value={this.state.address}/>
-
-
-                                       </td>
-
-                                   </tr>
-
-                                   <tr>
-                                       <td align="justify">
-                                           City
-
-                                       </td>
-                                       <td align="justify">
+                            Mobile Number
+                        </td>
+                        <td align="justify">
 
 
-                                           <input type="text" id="Citi" value={this.state.city}/>
+                            <input type="text" id="phone number" value={this.state.phoneNumber} required/>
 
-                                       </td>
+                        </td>
 
-                                   </tr>
-
-                                   <tr>
-                                       <td align="justify">
-                                           Zip
-
-                                       </td>
-                                       <td align="justify">
+                    </tr>
 
 
-                                           <input type="text" id="Zip" value={this.state.zip}/>
+                    <tr>
+                        <td align="justify">
+                            Email address
 
-                                       </td>
+                        </td>
+                        <td align="justify">
 
-                                   </tr>
-
-
-                               </table>
+                            <input type="text" id="email" value={this.state.email}/>
 
 
-                               <br/>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td align="justify">
+                            Address
+
+                        </td>
+                        <td align="justify">
+
+                            <input type="text" id="address" value={this.state.address}/>
+
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td align="justify">
+                            City
+
+                        </td>
+                        <td align="justify">
+
+
+                            <input type="text" id="Citi" value={this.state.city}/>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td align="justify">
+                            Zip
+
+                        </td>
+                        <td align="justify">
+
+
+                            <input type="text" id="Zip" value={this.state.zip}/>
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+
+                <br/>
 
 
                 <button type="button" role="link" onClick={this.onClick}>submit and pay</button>
@@ -183,20 +181,14 @@ class Review extends React.Component {
             orderTime: new Date().toLocaleString()
         }
 
-
-
-
-
         // Get Stripe.js instance
         const stripe = await stripePromise;
 //
         // Call your backend to create the Checkout Session
-        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/acceptPayment", {
+        const response = await fetch("https://pies-and-fries.netlify.app/.netlify/functions/ProcessPayment", {
             method: 'POST', headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+                'Content-Type': 'application/json'
+
 
             },
             body: JSON.stringify(abbreviatedState)
@@ -219,13 +211,10 @@ class Review extends React.Component {
 
         if (result.error) {
             console.log(result.error.message)
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer
-            // using `result.error.message`.
+
         }
 
 
-        //this.props.methodToPassToChild('confirmed');
     }
     returnToOrderPage = () => {
         this.props.methodToPassToChild('ordered');

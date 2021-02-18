@@ -1,14 +1,21 @@
-// This example sets up an endpoint using the Express framework.
-// Watch this video to get started: https://youtu.be/rPR2aJ6XnAc.
-//const axios = require('axios')
+
 
 exports.handler = async (event, context) => {
-
 
 
     const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SK);
 
     var info = JSON.parse(event.body);
+
+
+    const endpoint = await stripe.webhookEndpoints.create({
+        url: 'https://pies-and-fries.netlify.app/.netlify/functions/ConfirmPayment',
+        enabled_events: [
+            'charge.failed',
+            'charge.succeeded',
+        ],
+    });
+
 
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
@@ -27,8 +34,8 @@ exports.handler = async (event, context) => {
         ],
 
         mode: 'payment',
-        success_url: ` https://pies-and-fries.netlify.app/ `,
-        cancel_url: 'https://pies-and-fries.netlify.app?info=canceled',
+        success_url: `https://pies-and-fries.netlify.app/?info =confirmed`,
+        cancel_url: `https://pies-and-fries.netlify.app/?info =canceled`
     });
     console.log("hi from func")
     const headers = {

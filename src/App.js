@@ -75,8 +75,9 @@ class App extends React.Component {
 
         }
 
-        var info = cookie.get('data');
+        const info = cookie.get('info');
         if (info) {
+
             this.conf = true;
             console.log(JSON.stringify(info));
         }
