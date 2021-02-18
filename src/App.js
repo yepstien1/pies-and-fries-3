@@ -73,13 +73,10 @@ class App extends React.Component {
         if (canceled === 'canceled') {
             cookie.remove('data')
 
-        }
-
-        const info = cookie.get('info');
-        if (info) {
+        } else if (canceled === 'confirmed') {
 
             this.conf = true;
-            console.log(JSON.stringify(info));
+
         }
 
 
